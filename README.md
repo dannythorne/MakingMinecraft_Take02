@@ -140,7 +140,7 @@ encountered.
 
   2. `File | Save Project`
   
-     Select File and Save Project.
+     Select `File` and `Save Project`.
 
      ![Save Project](./ScreenCaps/project_save.png "Save Project")
 
@@ -163,24 +163,24 @@ encountered.
 
      ![Renamed MineBlock.cs script](./ScreenCaps/script_mineblock_renamed.png "Renamed MineBlock.cs Script")
 
-     Now double-click the MineBlock C# asset. That will cause the script to be loaded in Mono.
+     Now double-click the `MineBlock` C# asset. That will cause the script to be loaded in Mono.
 
      ![Mono MineBlock initial script](./ScreenCaps/mono_mineblock_initial.png "Initial Mineblock Script In Mono")
 
      There is a `Start` function and an `Update` function. They are empty to
      start with. We could write code in them, but we won't for now.
-     We can also add other functions. We will add another soon.
+     We can also add other functions. We will add another function soon.
 
      It is important to realize first and foremost, however, that this script
-     needs to be &ldquo;attached&rdquo; to a game object (or multiple game objects for
-     that matter). Let's go ahead and attach it to our block prefab before
+     needs to be &ldquo;attached&rdquo; to a game object (or multiple game objects).
+     Let's go ahead and attach it to our block prefab before
      delving into actual coding in the script.
 
   8. Go back to Unity and select the `Block` prefab.
 
      ![Select Block Prefab](./ScreenCaps/block_prefab_select.png "Select Block Prefab")
 
-     Now click and drag the `MineBlock` prefab over to the `Add Component`
+     Now click and drag the `MineBlock` script asset over to the `Add Component`
      button in the `Inspector View` for the `Block` prefab and drop it there.
 
      ![MineBlock Script Drop To Add](./ScreenCaps/script_mineblock_drop_to_add.png "MineBlock Script Drop To Add")
@@ -228,17 +228,17 @@ encountered.
 
      **WARNING:** If you fail to stop the game before going on to make changes
      to the game, your changes will be lost when the game is stopped.  You
-     *must* stop the game before making changes that you want to keep.  Note,
-     that it can sometimes be useful to make temporary changes to the
-     game while it is running just for the purpose of diagnostics and
-     experimentation, but in any case you should always be alert to whether
-     the game is running or not before making changes.
+     *must* stop the game before making changes that you want to keep.  Note
+     that it can sometimes be useful to make temporary changes to the game
+     while it is running just for the purpose of diagnostics and
+     experimentation, but in any case you should always be alert to whether the
+     game is running or not before making changes.
 
   11. Save the scene and the project.
 
-#### Hide the original Block game object
+#### Hide the original `Block` game object
 
-We're getting ready in the next section to add a new game object to the scene.
+In the next section we are going to add a new game object to the scene.
 To keep the scene view clean in preparation for that, we will now hide the
 original `Block` game object that we used to make the `Block` prefab. Also,
 eventually, we will be placing multitudes of blocks from a script at run time
@@ -248,8 +248,7 @@ added to the scene via the prefab just to have something there in the
 meantime. We do want to hide the original one, though, because it occupies
 the special origin location that other new game objects will occupy by default.
 (Alternatively, we could just move it out of the way, but we are going to
-want to hide it eventually anyway so let's just do it now since there is no
-good reason not to.)
+want to hide it eventually anyway so let's just do it now.)
 
   1. In the `Hierarchy View`, select the `Block` game object.
 
@@ -259,8 +258,8 @@ good reason not to.)
 
      ![](./ScreenCaps/block_gameobject_hide.png)
 
-     That game object should no longer appears in the scene. It is still listed in the
-     `Hierarchy View` but a bit dimmed.
+     That game object should no longer appear in the scene. It is still listed in the
+     `Hierarchy View` although dimmed.
 
 ### Drops
 
@@ -305,11 +304,11 @@ destroyed.
      ![Select DroppedBlock Game Object](./ScreenCaps/droppedblock_select.png "Select DroppedBlock Game Object")
      ![Hide DroppedBlock Game Object](./ScreenCaps/droppedblock_hide.png "Hide DroppedBlock Game Object")
 
-  7. Go to Mono and edit the `MineBlock` script by adding the line
+  7. Go to Mono and edit the `MineBlock` script by adding this line
 
            public GameObject droppedBlockPrefab;
 
-     before the Start function like this:
+     before the Start function:
 
      ![Script Object for DroppedBlock Prefab](./ScreenCaps/droppedblockprefab_script_object.png "Script Object for DroppedBlock Prefab")
 
@@ -331,7 +330,7 @@ destroyed.
      ![DroppedBlockPrefab Dropped](./ScreenCaps/droppedblockprefab_dropped.png "DroppedBlockPrefab Dropped")
 
      This will cause the `droppedBlockPrefab` variable in the `MineBlock`
-     script to be initialized to that `DroppedBlock` prefab when the game runs.
+     script to be initialized to the `DroppedBlock` prefab when the game runs.
      It is in this way that our script will have access to that prefab.
 
   9. Finally, add this line
