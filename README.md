@@ -354,6 +354,116 @@ destroyed.
 
 ## First Person Character
 
+### Import Assets
+
+  1. `Assets | Import Package | Characters`
+
+     ![Import Package Characters](./ScreenCaps/assets_characters.png "Import Package Characters")
+
+  2. Click the "None" button to uncheck all of the options.
+
+     ![Click None to Deselect All](./ScreenCaps/assets_characters_none.png "Click None to Deselect All")
+
+  3. Click the checkbox next to `FirstPersonCharacter`.
+
+     ![Select FirstPersonCharacter](./ScreenCaps/assets_characters_fpc_select.png "Select FirstPersonCharacter")
+
+     Now just the FirstPersonCharacter asset is selected.
+
+     ![FirstPersonCharacter Selected](./ScreenCaps/assets_characters_fpc_selected.png "FirstPersonCharacter Selected")
+
+  4. Click the `Import` button.
+
+     ![Click Import](./ScreenCaps/assets_characters_fpc_import.png "Click Import")
+
+     Notice the new `StandardAssets` folder inside your `Assets` folder of the `Project View`.
+
+     ![New StandardAssets Folder](./ScreenCaps/standardassets_folder.png "New StandardAssets Folder")
+
+     You will also notice an error message in the Unity status bar. If you click the `Console` tab
+     next to the `Project` tab, you will see other messages, too.
+     There are a couple of dependencies that we need to import before we can use the
+     `FirstPersonCharacter` standard asset.
+
+  5. `Assets | Import Package | CrossPlatformInput`
+
+     ![Import Package CrossPlatformInput](./ScreenCaps/assets_crossplatforminput.png "Import Package CrossPlatformInput")
+
+     ![Click Import](./ScreenCaps/assets_crossplatforminput_import.png "Click Import")
+
+     And now there is a new folder named `Editor` inside the `Assets` folder of the `Project View`.
+
+     ![New Editor Folder](./ScreenCaps/editor_folder.png "New Editor Folder")
+
+  6. `Assets | Import Package | Utility`
+
+     ![Import the Utility Package](./ScreenCaps/assets_utility.png "Import the Utility Package")
+
+     ![Click the Import Button](./ScreenCaps/assets_utility_import.png "Click the Import Button")
+
+     No additional new folders will appear at the top level of the `Assets`
+     folder this time, but you'll see that the error messages have disappeared
+     now.
+
+### Add to the Scene and Configure the FirstPersonCharacter
+
+  1. Under the `Assets` folder in the `Project View`, expand `StandardAssets`,
+     `Characters`, `FirstPersonCharacter`, and then select `Prefabs`.
+
+     ![FPSController Prefab](./ScreenCaps/fpscontroller_prefab.png "FPSController Prefab")
+
+     Notice the `FPSController` prefab. That's what we are going to use.
+
+  2. Drag the `FPSController` prefab into the scene.
+
+     ![Drag the FPSController into the Scene](./ScreenCaps/fpscontroller_prefab_dropping.png "Drag the FPSController into the Scene")
+
+     Drop it somewhere near the current camera.
+
+     ![Dropthe FPSController into the Scene](./ScreenCaps/fpscontroller_prefab_dropped.png "Drop the FPSController into the Scene")
+
+  3. Remove the old camera which is called `Main Camera`.
+
+     ![Delete the Old Main Camera](./ScreenCaps/maincamera_delete.png "Delete the Old Main Camera")
+
+     The `FPSController` prefab comes with its own camera built in.
+
+  7. Adjust the `y` coordinate of the `FPSController` position so that it is
+     completely above the plane, e.g., `y=2`.
+
+     ![Select the FPSController Game Object](./ScreenCaps/fpscontroller_selected.png "Select the FPSController Game Object")
+     ![Adjust Position of FPSController](./ScreenCaps/fpscontroller_position.png "Adjust Position of FPSController")
+
+     It's okay if it starts higher than the plane. It will fall to the surface
+     when the game begins.
+
+  4. Save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  5. Run the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+     Notice that the camera follows the cursor as expected for a first person
+     character. Also, you can use the `W` `A` `S` `D` keys to make the player walk and the
+     `SPACE` bar to make it jump.
+
+  6. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
+
+  8. Adjust the scale of the `FPSController` to `(0.5,0.9,0.5)`.
+  
+     ![FPSController Selected](./ScreenCaps/fpscontroller_selected.png "FPSController Selected")
+     ![Adjust the Scale of the FPSController](./ScreenCaps/fpscontroller_scale.png "Adjust the Scale of the FPSController")
+
+     This will make it possible for the character to fit through one block wide
+     and two block high openings (eventually).
+
+     ![](./ScreenCaps)
+
 ## Pickup Mechanic
 
 ## Sound effects
