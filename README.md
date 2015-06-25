@@ -544,6 +544,50 @@ screen (like the crosshairs of Minecraft).
 
 ## Build the Game
 
+  1. `File | Build Settings...`
+
+     ![](./ScreenCaps/buildsettings_select.png)
+
+  2. From the `Platform` list, select `PC, Mac & Linux Standalone`.
+
+     ![](./ScreenCaps/buildsettings_standalone.png)
+
+  3. Select your operating system from the `Target Platform` menu.
+
+     ![](./ScreenCaps/buildsettings_targetplatform.png)
+
+  4. Click the `Build And Run` button.
+
+     ![](./ScreenCaps/buildsettings_buildandrun.png)
+
+  5. Name the application something like `MakingMinecraft`.
+
+     ![](./ScreenCaps/buildsettings_appname.png)
+
+  6. Click `Save`.
+
+  7. Select your desired resolution from the `Configuration` dialog that pops up.
+
+     ![](./ScreenCaps/buildsettings_configuration_resolution.png)
+
+  8. Optionally check the `Windowed` check box.
+
+     ![](./ScreenCaps/buildsettings_configuration_windowed.png)
+
+     This will make the application run inside a window rather than in full screen.
+
+  9. Optionally adjust the graphics quality.
+
+  10. `Play!`
+
+     ![](./ScreenCaps/buildsettings_configuration_play.png)
+
+     ![](./ScreenCaps/application_running01.png)
+
+     When finished playing, press `ESC` to unlock the cursor and close the application.
+
+     ![](./ScreenCaps)
+
 ## Pickup Mechanic
 
 ## Sound effects
