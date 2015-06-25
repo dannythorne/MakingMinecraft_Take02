@@ -3,11 +3,12 @@
 
 This tutorial shows a way to create the very basic game mechanics of Minecraft:
 blocks that can be broken to drop items, a first person player who can pick up
-the dropped item. (Pending: ability to place blocks.)
+the dropped item.
 
-*Unity Version 5.1.0f3 Personal*
-
-*MonoDevelop-Unity Version 4.0.1*
+This tutorial was developed in `OS X Yosimite Version 10.10.3 (14D136)`
+with `Unity Version 5.1.0f3 Personal`
+and
+`MonoDevelop-Unity Version 4.0.1`.
 
 ## Preliminaries
 
@@ -562,12 +563,6 @@ screen (like the crosshairs of Minecraft).
 
      Select your operating system from the `Target Platform` menu.
 
-  3. `Architecture`
-
-     ![Architecture](./ScreenCaps/buildsettings_architecture.png "Architecture")
-
-     Select your architecture from the `Architecture` menu.
-
   4. Click the `Build And Run` button.
 
      ![Click Build And Run](./ScreenCaps/buildsettings_buildandrun.png "Click Build And Run")
@@ -608,13 +603,86 @@ screen (like the crosshairs of Minecraft).
 
 ## Pickup Mechanic
 
-When the player runs into a dropped block, the dropped block game object should disappear.
+When the player runs into a dropped block, the dropped block game object should disappear
+as the player &ldquo;picks up&rdquo; the item.
 
-  1. asdf
+  1. Select the `DroppedBlock` prefab in the `Assets` folder of the `Project View`.
+
+     ![](./ScreenCaps/droppedblockprefab_select.png)
+
+  2. In the `Inspector View`, check the `Is Trigger` check box of the `Box Collider` component.
+
+     ![](./ScreenCaps/droppedblockprefab_boxcollider_istrigger.png)
+
+  3. In the `Assets` folder, create a new C# Script.
+
+     ![](./ScreenCaps/script_pickup_create.png)
+
+  4. Rename it to `PickUp`.
+
+     ![](./ScreenCaps/script_pickup_new.png)
+     ![](./ScreenCaps/script_pickup_renaming.png)
+     ![](./ScreenCaps/script_pickup_renamed.png)
+
+  5. Select the `DroppedBlock` prefab again.
+
+     ![](./ScreenCaps/droppedblockprefab_select2.png)
+
+  6. Drag the `PickUp` script over to the `Add Component` button in the `Inspector` for the `DroppedBlock` prefab.
+
+     ![](./ScreenCaps/droppedblockprefab_addcomponent.png)
+
+     Then the `Pick Up (Script)` component should appear in the list of
+     components in the `Inspector` for the `DroppedBlock` prefab.
+
+     ![](./ScreenCaps/droppedblockprefab_component_added.png)
+
+  9. Save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  7. Double-click the `PickUp` script to open it in Mono.
+
+     ![](./ScreenCaps/script_pickup_doubleclick.png)
+
+     Now you will see three tabs in Mono with the one for the `PickUp` script in front.
+
+     ![](./ScreenCaps/script_pickup_initial.png)
+
+  8. Add the following `OnTriggerEnter` function
+
+           void OnTriggerEnter()
+           {
+               Destroy( gameObject);
+           }
+
+     after the `Update` function like this:
+
+     ![](./ScreenCaps/script_pickup_ontriggerenter.png)
+
+  9. Save the script.
+
+     ![](./ScreenCaps/script_pickup_save.png)
+
+  9. Back in Unity, run the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+     Click on a block to make it drop a dropped block item and then run your
+     character into the dropped block.  It should disappear.
+
+  9. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
 
      ![](./ScreenCaps)
 
 ## Sound effects
+
+Breaking blocks and collecting dropped items is much more satisfying with sound effects!
+
+  1. TODO
 
 ## Terrain
 
@@ -623,6 +691,8 @@ When the player runs into a dropped block, the dropped block game object should 
 ### Add a Material to the Block Prefab
 
 ### Add a Material to the DroppedBlock Prefab
+
+### Animate Dropped Blocks
 
 ### Turn off shadows?
 
