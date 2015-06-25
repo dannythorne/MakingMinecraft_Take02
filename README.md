@@ -1,3 +1,2 @@
 
-[https://dannythorne.github.io/MakingMinecraft\_Take02](https://dannythorne.github.io/MakingMinecraft\_Take02)
-
+[http://dannythorne.github.io/MakingMinecraft_Take02/](http://dannythorne.github.io/MakingMinecraft_Take02/)
