@@ -462,7 +462,87 @@ destroyed.
      This will make it possible for the character to fit through one block wide
      and two block high openings (eventually).
 
-     ![](./ScreenCaps)
+### Lock the Mouse
+
+The way the player interacts with the scene will be more natural if the cursor is always in the center of the
+screen (like the crosshairs of Minecraft).
+
+  1. Select the `Assets` folder in the `Project View` and create a new `C# Script`.
+
+     ![](./ScreenCaps/script_mouselock_create.png)
+
+  2. Rename the new script to `MouseLock`.
+
+     ![](./ScreenCaps/script_mouselock_new.png)
+     ![](./ScreenCaps/script_mouselock_renaming.png)
+     ![](./ScreenCaps/script_mouselock_renamed.png)
+
+  3. Select the FPSController game object.
+
+     ![](./ScreenCaps/fpscontroller_selected2.png)
+
+  4. Scroll down in the `Inspector View` until the `Add Component` button is
+     visible.
+
+     ![](./ScreenCaps/addcomponent_button.png)
+
+  5. Drag the `MouseLock` asset onto the `Add Component` button of the
+     `Inspector` for the `FPSController`.
+
+     ![](./ScreenCaps/mouselock_adding.png)
+
+     Now the `Mouse Lock (Script)` component should appear in the list of
+     components for the `FPSController`.
+
+     ![](./ScreenCaps/mouselock_added.png)
+
+  6. Double-click the `MouseLock` C# asset in the `Project View` to open it in Mono.
+
+     ![](./ScreenCaps/mouselock_initial.png)
+
+     Notice that Mono now has two tabs, one for the `Mineblock` script that we
+     edited previously (and will return to later) and one for the new `MouseLock`
+     script that we will edit now.
+
+  7. To lock the mouse cursor when the game begins, put this line
+
+           Cursor.lockState = CursorLockMode.Locked;
+
+     in the `Start` function.
+
+     ![](./ScreenCaps/mouselock_start01.png)
+
+  8. To unlock the mouse cursor when the user presses the `ESC` key, put these
+     lines
+
+          if( Input.GetKeyDown("escape"))
+          {
+            Cursor.lockState = CursorLockMode.None;
+          }
+
+     in the `Update` function.
+
+     ![](./ScreenCaps/mouselock_update01.png)
+
+  9. Save the scene and the project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  9. Run the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+  
+     If you're lucky, the mouse cursor will lock in the middle of the `Game
+     View` until you hit the `ESC` key.
+
+     ![](./ScreenCaps/mouselock_cursor_centered.png)
+
+     The mouse lock mechanism can be a bit flakey in the `Game View`. Sometimes
+     it doesn't work right. To see it work reliably, we need to build the game
+     as a native application and run it that way.
+
+## Build the Game
 
 ## Pickup Mechanic
 
@@ -477,5 +557,9 @@ destroyed.
 ### Add a Material to the DroppedBlock Prefab
 
 ### Turn off shadows?
+
+### More Elaborate Mouse Lock Mechanism
+
+### Replace Cursor Pointer with Crosshairs
 
 ### Outline Blocks on Focus
