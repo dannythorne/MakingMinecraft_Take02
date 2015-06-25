@@ -469,36 +469,36 @@ screen (like the crosshairs of Minecraft).
 
   1. Select the `Assets` folder in the `Project View` and create a new `C# Script`.
 
-     ![](./ScreenCaps/script_mouselock_create.png)
+     ![Create MouseLock Script](./ScreenCaps/script_mouselock_create.png "Create MouseLock Script")
 
   2. Rename the new script to `MouseLock`.
 
-     ![](./ScreenCaps/script_mouselock_new.png)
-     ![](./ScreenCaps/script_mouselock_renaming.png)
-     ![](./ScreenCaps/script_mouselock_renamed.png)
+     ![New Script](./ScreenCaps/script_mouselock_new.png "New Script")
+     ![Renaming Script](./ScreenCaps/script_mouselock_renaming.png "Renaming Script")
+     ![Script Renamed](./ScreenCaps/script_mouselock_renamed.png "Script Renamed")
 
   3. Select the FPSController game object.
 
-     ![](./ScreenCaps/fpscontroller_selected2.png)
+     ![Select FPSController Game Object](./ScreenCaps/fpscontroller_selected2.png "Select FPSController Game Object")
 
   4. Scroll down in the `Inspector View` until the `Add Component` button is
      visible.
 
-     ![](./ScreenCaps/addcomponent_button.png)
+     ![Button for Add Component](./ScreenCaps/addcomponent_button.png "Button for Add Component")
 
   5. Drag the `MouseLock` asset onto the `Add Component` button of the
      `Inspector` for the `FPSController`.
 
-     ![](./ScreenCaps/mouselock_adding.png)
+     ![Add MouseLock Script as Component of FPSController](./ScreenCaps/mouselock_adding.png "Add MouseLock Script as Component of FPSController")
 
      Now the `Mouse Lock (Script)` component should appear in the list of
      components for the `FPSController`.
 
-     ![](./ScreenCaps/mouselock_added.png)
+     ![MouseLock Script Added](./ScreenCaps/mouselock_added.png "MouseLock Script Added")
 
   6. Double-click the `MouseLock` C# asset in the `Project View` to open it in Mono.
 
-     ![](./ScreenCaps/mouselock_initial.png)
+     ![Initial MouseLock Script](./ScreenCaps/mouselock_initial.png "Initial MouseLock Script")
 
      Notice that Mono now has two tabs, one for the `Mineblock` script that we
      edited previously (and will return to later) and one for the new `MouseLock`
@@ -510,7 +510,7 @@ screen (like the crosshairs of Minecraft).
 
      in the `Start` function.
 
-     ![](./ScreenCaps/mouselock_start01.png)
+     ![Cursor Lock in Start Function](./ScreenCaps/mouselock_start01.png "Cursor Lock in Start Function")
 
   8. To unlock the mouse cursor when the user presses the `ESC` key, put these
      lines
@@ -522,7 +522,7 @@ screen (like the crosshairs of Minecraft).
 
      in the `Update` function.
 
-     ![](./ScreenCaps/mouselock_update01.png)
+     ![Capture ESC in Update Function](./ScreenCaps/mouselock_update01.png "Capture ESC in Update Function")
 
   9. Save the scene and the project.
 
@@ -536,7 +536,7 @@ screen (like the crosshairs of Minecraft).
      If you're lucky, the mouse cursor will lock in the middle of the `Game
      View` until you hit the `ESC` key.
 
-     ![](./ScreenCaps/mouselock_cursor_centered.png)
+     ![Cursor Centered in Game View](./ScreenCaps/mouselock_cursor_centered.png "Cursor Centered in Game View")
 
      The mouse lock mechanism can be a bit flakey in the `Game View`. Sometimes
      it doesn't work right. To see it work reliably, we need to build the game
@@ -546,49 +546,73 @@ screen (like the crosshairs of Minecraft).
 
   1. `File | Build Settings...`
 
-     ![](./ScreenCaps/buildsettings_select.png)
+     ![File | Build Settings...](./ScreenCaps/buildsettings_select.png "File | Build Settings...")
 
-  2. From the `Platform` list, select `PC, Mac & Linux Standalone`.
+     From the `File` menu, select `Build Settings...`.
 
-     ![](./ScreenCaps/buildsettings_standalone.png)
+  2. `PC, Mac & Linux Standalone`.
 
-  3. Select your operating system from the `Target Platform` menu.
+     ![Platform](./ScreenCaps/buildsettings_standalone.png "Platform")
 
-     ![](./ScreenCaps/buildsettings_targetplatform.png)
+     From the `Platform` list, select `PC, Mac & Linux Standalone`.
+
+  3. `Target Platform`
+
+     ![Targer Platform](./ScreenCaps/buildsettings_targetplatform.png "Targer Platform")
+
+     Select your operating system from the `Target Platform` menu.
+
+  3. `Architecture`
+
+     ![Architecture](./ScreenCaps/buildsettings_architecture.png "Architecture")
+
+     Select your architecture from the `Architecture` menu.
 
   4. Click the `Build And Run` button.
 
-     ![](./ScreenCaps/buildsettings_buildandrun.png)
+     ![Click Build And Run](./ScreenCaps/buildsettings_buildandrun.png "Click Build And Run")
 
   5. Name the application something like `MakingMinecraft`.
 
-     ![](./ScreenCaps/buildsettings_appname.png)
+     ![Name the Application](./ScreenCaps/buildsettings_appname.png "Name the Application")
 
   6. Click `Save`.
 
+     ![Save the Application](./ScreenCaps/application_save.png "Save the Application")
+
   7. Select your desired resolution from the `Configuration` dialog that pops up.
 
-     ![](./ScreenCaps/buildsettings_configuration_resolution.png)
+     ![Choose Resolution](./ScreenCaps/buildsettings_configuration_resolution.png "Choose Resolution")
 
   8. Optionally check the `Windowed` check box.
 
-     ![](./ScreenCaps/buildsettings_configuration_windowed.png)
+     ![Optionally Check Windowed](./ScreenCaps/buildsettings_configuration_windowed.png)
 
      This will make the application run inside a window rather than in full screen.
 
-  9. Optionally adjust the graphics quality.
+  9. `Play!`
 
-  10. `Play!`
+     ![Play!](./ScreenCaps/buildsettings_configuration_play.png "Play!")
 
-     ![](./ScreenCaps/buildsettings_configuration_play.png)
+     Click the `Play!` button and enjoy playing the game as a native
+     application.
 
-     ![](./ScreenCaps/application_running01.png)
+     ![Application Running](./ScreenCaps/application_running01.png "Application Running")
 
-     When finished playing, press `ESC` to unlock the cursor and close the application.
+     When finished playing, press `ESC` to unlock the cursor and then close the
+     application.
 
-     ![](./ScreenCaps)
+  9. Back in Unity, close the `Build Settings` window.
+
+     ![Close Build Settings](./ScreenCaps/buildsettings_close.png "Close Build Settings")
 
 ## Pickup Mechanic
+
+When the player runs into a dropped block, the dropped block game object should disappear.
+
+  1. asdf
+
+     ![](./ScreenCaps)
 
 ## Sound effects
 
