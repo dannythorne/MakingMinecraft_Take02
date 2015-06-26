@@ -744,8 +744,8 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
      ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
 
-     If you have audio on your computer, you should here the familiar dirt
-     block breaking sound now when you click on a block.
+     If you have audio on your computer, you should now hear the familiar sound
+     of a dirt block breaking when you click on a block.
 
   8. Stop the game.
 
