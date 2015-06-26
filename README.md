@@ -1,14 +1,15 @@
 
 # Making Minecraft
 
-This tutorial shows a way to create the very basic game mechanics of Minecraft:
-blocks that can be broken to drop items, a first person player who can pick up
-the dropped item.
+This tutorial shows a way to create the most basic game mechanics of Minecraft:
+blocks that can be broken to drop items and a first person player who can pick up
+the dropped items.
 
-This tutorial was developed in `OS X Yosimite Version 10.10.3 (14D136)`
-with `Unity Version 5.1.0f3 Personal`
-and
-`MonoDevelop-Unity Version 4.0.1`.
+This tutorial was developed in:
+
+  * `Unity Version 5.1.0f3 Personal`
+  * `MonoDevelop-Unity Version 4.0.1`.
+  * `OS X Yosimite Version 10.10.3 (14D136)`
 
 ## Preliminaries
 
@@ -61,7 +62,7 @@ bedrock.
 
 We will make a block prefab, add a script to it, and add a material to it.
 Explanations of prefabs, scripts, and materials are provided below as
-encountered.
+encountered (TODO).
 
 #### Making a Block Prefab
 
@@ -705,11 +706,11 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
 ### Sound Effect for Mining Blocks
 
-  1. In the MineBlock script in Mono, add this line
+  1. In the `MineBlock` script in Mono, add this line
 
            public AudioClip mineSound;
 
-     at the top of the MineBlock class:
+     at the top of the `MineBlock` class:
 
      ![](./ScreenCaps/script_mineblock_minesound_variable.png)
 
@@ -717,7 +718,7 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
      ![](./ScreenCaps/script_mineblock_file_save.png)
 
-  3. Go back to Unity. Select the Block prefab from the Assets folder and
+  3. Go back to Unity. Select the Block prefab from the `Assets` folder and
      notice the `Mine Sound` field in the `Mine Block (Script)` component
      in the `Inspector`.
 
@@ -758,27 +759,134 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
 ### Sound Effect for Picking Up Dropped Blocks
 
-As an exercise, see if you can now add the sound effect for picking up dropped
-blocks without looking at the following instructions.
+Challenge: *As an exercise, see if you can now add the sound effect for picking up dropped
+blocks without looking at the following instructions.*
 
-  1. asdf
+  1. In the `PickUp` script in Mono, add this line
 
-     ![](./ScreenCaps)
+           public AudioClip pickupSound;
+
+     at the top of the `PickUp` class:
+
+     ![](./ScreenCaps/script_pickup_pickupsound_variable.png)
+
+  2. Save.
+
+     ![](./ScreenCaps/script_mineblock_file_save.png)
+
+  3. Back in Unity, select the `DroppedBlock` prefab and see the `Pickup Sound`
+     field in the `PickUp (Script)` component in the `Inspector`.
+
+     ![](./ScreenCaps/script_pickup_component_with_pickupsound_field.png)
+
+  4. Drag the `pop` asset into that field.
+
+     ![](./ScreenCaps/pop_sound_dragging.png)
+     ![](./ScreenCaps/pop_sound_dropped.png)
+
+  5. Go back to Mono and add this line
+
+           AudioSource.PlayClipAtPoint( pickupSound, transform.position);
+
+     in the `OnTriggerEnter` function before the `Destroy` statement:
+
+     ![](./ScreenCaps/script_pickup_ontriggerenter_playclip.png)
+
+  6. Save.
+
+     ![](./ScreenCaps/script_mineblock_file_save.png)
+
+  7. Go back to Unity and play the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+     After breaking a block to make it drop a dropped block, when
+     you run your character into the dropped block you should
+     hear the popping sound of the item being collected.
+
+  8. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
+
+  9. Save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+### Balance the Volume of Sound Effects
+
+The walking/stepping sound effects that come as part of the `FPSController` may
+be too loud relative to the sound effects for breaking and picking up blocks.
+Let's turn the `FPSController` sound effects down a little.
+
+  1. Select the `FPSController` game object in the `Heirarchy View`.
+
+     ![Select FPSController Game Object](./ScreenCaps/fpscontroller_selected3.png "Select FPSController Game Object")
+
+  2. In the `Inspector View`, adjust the `Volume` slider in the `Audio Source` componenent.
+
+     ![](./ScreenCaps/fpscontroller_audiosource_volume.png)
+
+     About half volume feels right to me, but adjust to suit yourself.
+
+  3. Save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  4. Play the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+  5. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
+
+  6. Repeat from step 2 until satisfied with volume balance.
 
 ## Terrain
 
+Now that the basic breaking and collecting mechanics are in place, let's
+generate an actual terrain rather than a scattering of hand-placed blocks.
+
+  1. Create a new C# Script called `Terrain`.
+
+  2. asdf
+
 ## Optional Stuff
 
-### Add a Material to the Block Prefab
-
-### Add a Material to the DroppedBlock Prefab
-
-### Animate Dropped Blocks
+The following list of tasks can be done in any order and independently of the
+others. They are listed roughly in order of how much time they should probably
+take.
 
 ### Turn off shadows?
 
+  1. TODO
+
+### Add a Material to the Block Prefab
+
+  1. TODO
+
+### Add a Material to the DroppedBlock Prefab
+
+  1. TODO
+
+### Animate Dropped Blocks
+
+  1. TODO
+
 ### More Elaborate Mouse Lock Mechanism
+
+  1. TODO
 
 ### Replace Cursor Pointer with Crosshairs
 
+  1. TODO
+
 ### Outline Blocks on Focus
+
+  1. TODO
+
+### Texture Map the Blocks
+
+  1. TODO

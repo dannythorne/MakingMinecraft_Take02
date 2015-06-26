@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PickUp : MonoBehaviour {
 
+	public AudioClip pickupSound;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,6 +17,7 @@ public class PickUp : MonoBehaviour {
 
 	void OnTriggerEnter()
 	{
+		AudioSource.PlayClipAtPoint( pickupSound, transform.position);
 		Destroy( gameObject);
 	}
 }
