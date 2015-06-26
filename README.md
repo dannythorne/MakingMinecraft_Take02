@@ -676,13 +676,94 @@ as the player &ldquo;picks up&rdquo; the item.
 
      ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
 
-     ![](./ScreenCaps)
-
 ## Sound effects
 
 Breaking blocks and collecting dropped items is much more satisfying with sound effects!
 
-  1. TODO
+### Add `.wav` sound files to `Assets`.
+
+  1. Download the following two `wav` files:
+
+     [dig\_grass1.wav](http://dannythorne.github.io/MakingMinecraft_Take02/Assets/dig_grass1.wav)
+
+     [pop.wav](http://dannythorne.github.io/MakingMinecraft_Take02/Assets/pop.wav)
+
+     ![](./ScreenCaps/wav_savelinkas.png)
+
+     Save them in the `Assets` folder.
+
+     ![](./ScreenCaps/wav_saveinassets.png)
+
+     Do that with both files: `dig_grass1.wav` and `pop.wav` .
+     Then you will see both of those files in the `Assets` folder on your harddrive.
+
+     ![](./ScreenCaps/assets_folder_listing.png)
+
+     They will also appear in the `Assets` folder inside the Unity editor.
+
+     ![](./ScreenCaps/assets_folder_in_unity.png)
+
+### Sound Effect for Mining Blocks
+
+  1. In the MineBlock script in Mono, add this line
+
+           public AudioClip mineSound;
+
+     at the top of the MineBlock class:
+
+     ![](./ScreenCaps/script_mineblock_minesound_variable.png)
+
+  2. Save the `MineBlock` script in Mono.
+
+     ![](./ScreenCaps/script_mineblock_file_save.png)
+
+  3. Go back to Unity. Select the Block prefab from the Assets folder and
+     notice the `Mine Sound` field in the `Mine Block (Script)` component
+     in the `Inspector`.
+
+     ![](./ScreenCaps/script_mineblock_component_with_minesound_field.png)
+
+  4. Drag the `dig_grass1` asset into that field.
+
+     ![](./ScreenCaps/dig_grass_sound_dragging.png)
+     ![](./ScreenCaps/dig_grass_sound_dropped.png)
+
+  5. Go back to Mono and add this line
+
+           AudioSource.PlayClipAtPoint( mineSound, transform.position);
+
+     inside the `OnMouseDown` function before the `Destroy` statement.
+
+     ![](./ScreenCaps/script_mineblock_onmousedown_playclip.png)
+
+  6. Save.
+
+     ![](./ScreenCaps/script_mineblock_file_save.png)
+
+  7. Go back to Unity and play the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+     If you have audio on your computer, you should here the familiar dirt
+     block breaking sound now when you click on a block.
+
+  8. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
+
+  9. Save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+### Sound Effect for Picking Up Dropped Blocks
+
+As an exercise, see if you can now add the sound effect for picking up dropped
+blocks without looking at the following instructions.
+
+  1. asdf
+
+     ![](./ScreenCaps)
 
 ## Terrain
 

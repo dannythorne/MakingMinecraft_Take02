@@ -4,6 +4,7 @@ using System.Collections;
 public class MineBlock : MonoBehaviour {
 
 	public GameObject droppedBlockPrefab;
+	public AudioClip mineSound;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class MineBlock : MonoBehaviour {
 	void OnMouseDown() {
 
 		Instantiate( droppedBlockPrefab, transform.position, droppedBlockPrefab.transform.rotation);
+		AudioSource.PlayClipAtPoint( mineSound, transform.position);
 		Destroy( gameObject);
 	}
 }
