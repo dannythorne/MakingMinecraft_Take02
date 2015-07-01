@@ -613,7 +613,7 @@ as the player &ldquo;picks up&rdquo; the item.
 
   2. In the `Inspector View`, check the `Is Trigger` check box of the `Box Collider` component.
 
-     ![Check the Is Trigger Check Box](./ScreenCaps/droppedblockprefab_boxcollider_istrigger.png "]"(./ScreenCaps/droppedblockprefab_boxcollider_istrigger.png))
+     ![Check the Is Trigger Check Box](./ScreenCaps/droppedblockprefab_boxcollider_istrigger.png "Check the Is Trigger Check Box")
 
 
   3. In the `Assets` folder, create a new C# Script.
