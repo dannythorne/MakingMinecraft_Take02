@@ -927,6 +927,11 @@ generate an actual terrain rather than a scattering of hand-placed blocks.
 
      so that the player starts in the middle of the world and up high.
 
+  9. Delete the manually placed blocks.
+
+     ![Deleting Manually Placed Blocks](./ScreenCaps/block_clones_deleting.png "Deleting Manually Placed Blocks")
+     ![Manually Placed Blocks Deleted](./ScreenCaps/block_clones_deleted.png "Manually Placed Blocks Deleted")
+
   9. Save the scene and project.
 
      ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
@@ -960,6 +965,10 @@ take.
   1. TODO
 
 ### Animate Dropped Blocks
+
+  1. TODO
+
+### Score Counter / Inventory
 
   1. TODO
 
