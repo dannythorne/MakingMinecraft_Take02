@@ -609,34 +609,35 @@ as the player &ldquo;picks up&rdquo; the item.
 
   1. Select the `DroppedBlock` prefab in the `Assets` folder of the `Project View`.
 
-     ![](./ScreenCaps/droppedblockprefab_select.png)
+     ![Select the DroppedBlock Prefab](./ScreenCaps/droppedblockprefab_select.png "Select the DroppedBlock Prefab")
 
   2. In the `Inspector View`, check the `Is Trigger` check box of the `Box Collider` component.
 
-     ![](./ScreenCaps/droppedblockprefab_boxcollider_istrigger.png)
+     ![Check the Is Trigger Check Box](./ScreenCaps/droppedblockprefab_boxcollider_istrigger.png "]"(./ScreenCaps/droppedblockprefab_boxcollider_istrigger.png))
+
 
   3. In the `Assets` folder, create a new C# Script.
 
-     ![](./ScreenCaps/script_pickup_create.png)
+     ![Create New C# Script Asset](./ScreenCaps/script_pickup_create.png "Create New C# Script Asset")
 
   4. Rename it to `PickUp`.
 
-     ![](./ScreenCaps/script_pickup_new.png)
-     ![](./ScreenCaps/script_pickup_renaming.png)
-     ![](./ScreenCaps/script_pickup_renamed.png)
+     ![New Script](./ScreenCaps/script_pickup_new.png "New Script")
+     ![Renaming](./ScreenCaps/script_pickup_renaming.png "Renaming")
+     ![Renamed](./ScreenCaps/script_pickup_renamed.png "Renamed")
 
   5. Select the `DroppedBlock` prefab again.
 
-     ![](./ScreenCaps/droppedblockprefab_select2.png)
+     ![Select the DroppedBlock Prefab](./ScreenCaps/droppedblockprefab_select2.png "Select the DroppedBlock Prefab")
 
   6. Drag the `PickUp` script over to the `Add Component` button in the `Inspector` for the `DroppedBlock` prefab.
 
-     ![](./ScreenCaps/droppedblockprefab_addcomponent.png)
+     ![Adding PickUp Script Component to DroppedBlock Prefab](./ScreenCaps/droppedblockprefab_addcomponent.png "Adding PickUp Script Component to DroppedBlock Prefab")
 
      Then the `Pick Up (Script)` component should appear in the list of
      components in the `Inspector` for the `DroppedBlock` prefab.
 
-     ![](./ScreenCaps/droppedblockprefab_component_added.png)
+     ![PickUp Script Added](./ScreenCaps/droppedblockprefab_component_added.png "PickUp Script Added")
 
   9. Save the scene and project.
 
@@ -645,11 +646,11 @@ as the player &ldquo;picks up&rdquo; the item.
 
   7. Double-click the `PickUp` script to open it in Mono.
 
-     ![](./ScreenCaps/script_pickup_doubleclick.png)
+     ![Double Click the Pickup Script](./ScreenCaps/script_pickup_doubleclick.png "Double Click the Pickup Script")
 
      Now you will see three tabs in Mono with the one for the `PickUp` script in front.
 
-     ![](./ScreenCaps/script_pickup_initial.png)
+     ![Initial PickUp Script](./ScreenCaps/script_pickup_initial.png "Initial PickUp Script")
 
   8. Add the following `OnTriggerEnter` function
 
@@ -660,11 +661,11 @@ as the player &ldquo;picks up&rdquo; the item.
 
      after the `Update` function like this:
 
-     ![](./ScreenCaps/script_pickup_ontriggerenter.png)
+     ![OnTriggerEnter Function in PickUp Class](./ScreenCaps/script_pickup_ontriggerenter.png "OnTriggerEnter Function in PickUp Class")
 
   9. Save the script.
 
-     ![](./ScreenCaps/script_pickup_save.png)
+     ![Save the PickUp Script](./ScreenCaps/script_pickup_save.png)
 
   9. Back in Unity, run the game.
 
@@ -689,20 +690,20 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
      [pop.wav](http://dannythorne.github.io/MakingMinecraft_Take02/Assets/pop.wav)
 
-     ![](./ScreenCaps/wav_savelinkas.png)
+     ![Save Link As](./ScreenCaps/wav_savelinkas.png "Save Link As")
 
      Save them in the `Assets` folder.
 
-     ![](./ScreenCaps/wav_saveinassets.png)
+     ![Save in Assets Folder](./ScreenCaps/wav_saveinassets.png "Save in Assets Folder")
 
      Do that with both files: `dig_grass1.wav` and `pop.wav` .
      Then you will see both of those files in the `Assets` folder on your harddrive.
 
-     ![](./ScreenCaps/assets_folder_listing.png)
+     ![Assets Folder Listing](./ScreenCaps/assets_folder_listing.png "Assets Folder Listing")
 
      They will also appear in the `Assets` folder inside the Unity editor.
 
-     ![](./ScreenCaps/assets_folder_in_unity.png)
+     ![Assets Folder in Unity](./ScreenCaps/assets_folder_in_unity.png "Assets Folder in Unity")
 
 ### Sound Effect for Mining Blocks
 
@@ -712,22 +713,22 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
      at the top of the `MineBlock` class:
 
-     ![](./ScreenCaps/script_mineblock_minesound_variable.png)
+     ![MineSound Variable in MineBlock Class](./ScreenCaps/script_mineblock_minesound_variable.png "MineSound Variable in MineBlock Class")
 
   2. Save the `MineBlock` script in Mono.
 
-     ![](./ScreenCaps/script_mineblock_file_save.png)
+     ![Save the MineBlock Script](./ScreenCaps/script_mineblock_file_save.png)
 
   3. Go back to Unity. Select the Block prefab from the `Assets` folder and
      notice the `Mine Sound` field in the `Mine Block (Script)` component
      in the `Inspector`.
 
-     ![](./ScreenCaps/script_mineblock_component_with_minesound_field.png)
+     ![Mine Sound Field in Mine Block Script Component](./ScreenCaps/script_mineblock_component_with_minesound_field.png "Mine Sound Field in Mine Block Script Component")
 
   4. Drag the `dig_grass1` asset into that field.
 
-     ![](./ScreenCaps/dig_grass_sound_dragging.png)
-     ![](./ScreenCaps/dig_grass_sound_dropped.png)
+     ![Adding dig_grass1 Asset to Mine Sound Field](./ScreenCaps/dig_grass_sound_dragging.png "Adding Dig Grass Sound to Mine Sound Field")
+     ![dig_grass1 Asset Added to Mine Sound Field](./ScreenCaps/dig_grass_sound_dropped.png)
 
   5. Go back to Mono and add this line
 
@@ -735,11 +736,11 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
      inside the `OnMouseDown` function before the `Destroy` statement.
 
-     ![](./ScreenCaps/script_mineblock_onmousedown_playclip.png)
+     ![PlayClip](./ScreenCaps/script_mineblock_onmousedown_playclip.png "PlayClip")
 
   6. Save.
 
-     ![](./ScreenCaps/script_mineblock_file_save.png)
+     ![Save the MineBlock Script](./ScreenCaps/script_mineblock_file_save.png "Save the MineBlock Script")
 
   7. Go back to Unity and play the game.
 
@@ -768,21 +769,21 @@ blocks without looking at the following instructions.*
 
      at the top of the `PickUp` class:
 
-     ![](./ScreenCaps/script_pickup_pickupsound_variable.png)
+     ![PickUp Sound Varialbe in PickUp Class](./ScreenCaps/script_pickup_pickupsound_variable.png "PickUp Sound Varialbe in PickUp Class")
 
   2. Save.
 
-     ![](./ScreenCaps/script_mineblock_file_save.png)
+     ![Save the PickUp Script](./ScreenCaps/script_mineblock_file_save.png "Save the PickUp Script")
 
   3. Back in Unity, select the `DroppedBlock` prefab and see the `Pickup Sound`
      field in the `PickUp (Script)` component in the `Inspector`.
 
-     ![](./ScreenCaps/script_pickup_component_with_pickupsound_field.png)
+     ![PickUp Sound Field in Script Component](./ScreenCaps/script_pickup_component_with_pickupsound_field.png "PickUp Sound Field in Script Component")
 
   4. Drag the `pop` asset into that field.
 
-     ![](./ScreenCaps/pop_sound_dragging.png)
-     ![](./ScreenCaps/pop_sound_dropped.png)
+     ![Adding Pop Asset to PickUp Sound Field](./ScreenCaps/pop_sound_dragging.png "Adding Pop Asset to PickUp Sound Field")
+     ![Pop Asset Added to PickUp Sound Field](./ScreenCaps/pop_sound_dropped.png "Pop Asset Added to PickUp Sound Field")
 
   5. Go back to Mono and add this line
 
@@ -790,11 +791,11 @@ blocks without looking at the following instructions.*
 
      in the `OnTriggerEnter` function before the `Destroy` statement:
 
-     ![](./ScreenCaps/script_pickup_ontriggerenter_playclip.png)
+     ![PlayClip](./ScreenCaps/script_pickup_ontriggerenter_playclip.png "PlayClip")
 
   6. Save.
 
-     ![](./ScreenCaps/script_mineblock_file_save.png)
+     ![Save PickUp Script](./ScreenCaps/script_mineblock_file_save.png "Save PickUp Script")
 
   7. Go back to Unity and play the game.
 
@@ -825,7 +826,7 @@ Let's turn the `FPSController` sound effects down a little.
 
   2. In the `Inspector View`, adjust the `Volume` slider in the `Audio Source` componenent.
 
-     ![](./ScreenCaps/fpscontroller_audiosource_volume.png)
+     ![Adjust Volume](./ScreenCaps/fpscontroller_audiosource_volume.png "Adjust Volume")
 
      About half volume feels right to me, but adjust to suit yourself.
 
@@ -849,9 +850,96 @@ Let's turn the `FPSController` sound effects down a little.
 Now that the basic breaking and collecting mechanics are in place, let's
 generate an actual terrain rather than a scattering of hand-placed blocks.
 
-  1. Create a new C# Script called `Terrain`.
+  1. Create a new C# Script called `GenTerrain`.
 
-  2. asdf
+     ![Create GenTerrain C# Script](./ScreenCaps/script_genterrain_new.png "Create GenTerrain C# Script")
+
+  2. Select the `Plane` game object.
+
+     ![Select Plane Game Object](./ScreenCaps/plane_select2.png "Select Plane Game Object")
+
+  3. Add the `GenTerrain` script as a componenet on the `Plane` game object.
+
+     ![Adding GenTerrain Script to Plane](./ScreenCaps/script_genterrain_adding.png "Adding GenTerrain Script to Plane")
+     ![GenTerrain Script Added to Plane](./ScreenCaps/script_genterrain_added.png "GenTerrain Script Added to Plane")
+
+  4. Double click the `GenTerrain` script to open it in Mono.
+
+     ![Open the GenTerrain Script](./ScreenCaps/script_genterrain_initial.png "Open the GenTerrain Script")
+
+  5. Add this line
+
+           public GameObject block;
+
+     at the top of the `GenTerrain` class just before the `Start` function.
+
+     ![Add Block Variable to GenTerrain Class](./ScreenCaps/script_genterrain_block_variable.png "Add Block Variable to GenTerrain Class")
+
+  6. Save.
+
+     ![Save the GenTerrain Script](./ScreenCaps/script_mineblock_file_save.png "Save the GenTerrain Script")
+
+  7. Go back to Unity and see the `Block` field in the `GenTerrain` component
+     in the `Inspector` for the `Plane` game object.
+
+     ![GenTerrain Block Field](./ScreenCaps/script_genterrain_block_field.png "GenTerrain Block Field")
+
+  8. Drag the `Block` prefab into that field.
+
+     ![Adding Block Prefab to Block Field](./ScreenCaps/script_genterrain_block_adding.png "Adding Block Prefab to Block Field")
+     ![Block Prefab Added to Block Field](./ScreenCaps/script_genterrain_block_added.png "Block Prefab Added to Block Field")
+
+  9. Back in Mono, add these lines
+
+           int i, j, k;
+           int nk;
+
+           int n = 32;
+           int h = 8;
+
+           for( j=-n; j<=n; j++)
+           {
+               for( i=-n; i<=n; i++)
+               {
+                   nk = (int)( Mathf.Floor( h*( 1 + Mathf.Sin( 2*Mathf.PI*i/n) * Mathf.Sin( 2*Mathf.PI*j/n) )));
+                   for( k=0; k<nk; k++)
+                   {
+                       Instantiate( block, new Vector3( i, k, j), Quaternion.identity);
+                   }
+               }
+           }
+  
+     to the `Start` function in the `GenTerrain` class:
+
+     ![GenTerrain Start Function Code](./ScreenCaps/script_genterrain_start_function.png "GenTerrain Start Function Code")
+
+  9. Save.
+
+     ![](./ScreenCaps/script_mineblock_file_save.png)
+
+  9. Back in Unity, select the `FPSController` game object
+
+     ![Select FPSController](./ScreenCaps/fps_controller_selected4.png "Select FPSController")
+
+     and adjust its `Position`
+
+     ![Adjust FPSController Position](./ScreenCaps/fps_controller_position2.png "Adjust FPSController Position")
+
+     so that the player starts in the middle of the world and up high.
+
+  9. Save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  9. Play the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+  9. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
+
 
 ## Optional Stuff
 
