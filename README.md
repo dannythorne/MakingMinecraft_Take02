@@ -1,16 +1,40 @@
-
 # Making Minecraft
 
 This tutorial shows a way to create the most basic game mechanics of Minecraft:
 blocks that can be broken to drop items and a first person player who can pick up
 the dropped items.
 
-This tutorial was developed in:
+Developed with
 
   * `Unity Version 5.1.0f3 Personal`
   * `MonoDevelop-Unity Version 4.0.1`.
   * `OS X Yosimite Version 10.10.3 (14D136)`
 
+Should work the same in Windows just with the usual OS interface differences.
+
+<a name="toc"></a>
+## TOC
+
+  * [Preliminaries](#prelims)
+  * [Basic Objects and Mechanics](#basics)
+    * [Ground](#ground)
+    * [Blocks](#blocks)
+    * [Drops](#drops)
+  * [First Person Character](#fps)
+    * [Import Assets](#import)
+    * [Add and Configure Character](#character)
+    * [Lock the Mouse](#mouselock)
+  * [Build the Game](#build)
+  * [Pickup Mechanic](#pickup)
+  * [Sound Effects](#soundeffects)
+    * [Add Sound Assets](#addsoundassets)
+    * [Sound Effect for Mining Blocks](#mineblocksound)
+    * [Sound Effect for Picking Up Dropped Blocks](#pickupsound)
+    * [Balancing the Volume of Sound Effects](#volume)
+  * [Terrain](#terrain)
+  * [Optional Stuff](#optional)
+
+<a name="prelims"></a>
 ## Preliminaries
 
 Create a 3D project and select the default layout in the editor.
@@ -23,10 +47,14 @@ Create a 3D project and select the default layout in the editor.
 
      ![Defaut Layout](./ScreenCaps/layout_default.png "Default Layout")
 
+<a name="basics"></a>
+[Back to TOC](#toc)
 ## Basic Objects and Mechanics
 
 Here we build the ground, the block prefab, and the item drop prefab.
 
+<a name="ground"></a>
+[Back to TOC](#toc)
 ### Ground
 
 You can think of the following as a quick and dirty substitute for a layer of
@@ -58,6 +86,8 @@ bedrock.
      Doing this leaves space for unit cubes centered at `y=0` so they will be
      on top of the plane.
 
+<a name="blocks"></a>
+[Back to TOC](#toc)
 ### Blocks
 
 We will make a block prefab, add a script to it, and add a material to it.
@@ -263,6 +293,8 @@ want to hide it eventually anyway so let's just do it now.)
      That game object should no longer appear in the scene. It is still listed in the
      `Hierarchy View` although dimmed.
 
+<a name="drops"></a>
+[Back to TOC](#toc)
 ### Drops
 
 In Minecraft, when a block is &ldquo;mined&rdquo; it can drop a resource which
@@ -354,8 +386,12 @@ destroyed.
 
   12. Save the scene and the project.
 
+<a name="fps"></a>
+[Back to TOC](#toc)
 ## First Person Character
 
+<a name="import"></a>
+[Back to TOC](#toc)
 ### Import Assets
 
   1. `Assets | Import Package | Characters`
@@ -407,7 +443,9 @@ destroyed.
      folder this time, but you'll see that the error messages have disappeared
      now.
 
-### Add to the Scene and Configure the FirstPersonCharacter
+<a name="character"></a>
+[Back to TOC](#toc)
+### Add and Configure Character
 
   1. Under the `Assets` folder in the `Project View`, expand `StandardAssets`,
      `Characters`, `FirstPersonCharacter`, and then select `Prefabs`.
@@ -464,6 +502,8 @@ destroyed.
      This will make it possible for the character to fit through one block wide
      and two block high openings (eventually).
 
+<a name="mouselock"></a>
+[Back to TOC](#toc)
 ### Lock the Mouse
 
 The way the player interacts with the scene will be more natural if the cursor is always in the center of the
@@ -544,6 +584,8 @@ screen (like the crosshairs of Minecraft).
      it doesn't work right. To see it work reliably, we need to build the game
      as a native application and run it that way.
 
+<a name="build"></a>
+[Back to TOC](#toc)
 ## Build the Game
 
   1. `File | Build Settings...`
@@ -602,6 +644,8 @@ screen (like the crosshairs of Minecraft).
 
      ![Close Build Settings](./ScreenCaps/buildsettings_close.png "Close Build Settings")
 
+<a name="pickup"></a>
+[Back to TOC](#toc)
 ## Pickup Mechanic
 
 When the player runs into a dropped block, the dropped block game object should disappear
@@ -678,11 +722,15 @@ as the player &ldquo;picks up&rdquo; the item.
 
      ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
 
-## Sound effects
+<a name="soundeffects"></a>
+[Back to TOC](#toc)
+## Sound Effects
 
 Breaking blocks and collecting dropped items is much more satisfying with sound effects!
 
-### Add `.wav` sound files to `Assets`.
+<a name="addsoundassets"></a>
+[Back to TOC](#toc)
+### Add Sound Assets.
 
   1. Download the following two `wav` files:
 
@@ -705,6 +753,8 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
      ![Assets Folder in Unity](./ScreenCaps/assets_folder_in_unity.png "Assets Folder in Unity")
 
+<a name="mineblocksound"></a>
+[Back to TOC](#toc)
 ### Sound Effect for Mining Blocks
 
   1. In the `MineBlock` script in Mono, add this line
@@ -758,6 +808,8 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
      ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
      ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
 
+<a name="pickupsound"></a>
+[Back to TOC](#toc)
 ### Sound Effect for Picking Up Dropped Blocks
 
 Challenge: *As an exercise, see if you can now add the sound effect for picking up dropped
@@ -814,6 +866,8 @@ blocks without looking at the following instructions.*
      ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
      ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
 
+<a name="volume"></a>
+[Back to TOC](#toc)
 ### Balance the Volume of Sound Effects
 
 The walking/stepping sound effects that come as part of the `FPSController` may
@@ -845,6 +899,8 @@ Let's turn the `FPSController` sound effects down a little.
 
   6. Repeat from step 2 until satisfied with volume balance.
 
+<a name="terrain"></a>
+[Back to TOC](#toc)
 ## Terrain
 
 Now that the basic breaking and collecting mechanics are in place, let's
@@ -946,6 +1002,8 @@ generate an actual terrain rather than a scattering of hand-placed blocks.
      ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
 
 
+<a name="optional"></a>
+[Back to TOC](#toc)
 ## Optional Stuff
 
 The following list of tasks can be done in any order and independently of the
