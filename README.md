@@ -254,11 +254,11 @@ want to hide it eventually anyway so let's just do it now.)
 
   1. In the `Hierarchy View`, select the `Block` game object.
 
-     ![](./ScreenCaps/block_gameobject_select.png)
+     ![Select the Block Game Object](./ScreenCaps/block_gameobject_select.png "Select the Block Game Object")
 
   2. In the `Inspector View`, uncheck the checkbox next to the game object's name field.
 
-     ![](./ScreenCaps/block_gameobject_hide.png)
+     ![Uncheck Checkbox Next to Name Field](./ScreenCaps/block_gameobject_hide.png "Uncheck Checkbox Next to Name Field")
 
      That game object should no longer appear in the scene. It is still listed in the
      `Hierarchy View` although dimmed.
@@ -341,7 +341,7 @@ destroyed.
 
      to the `OnMouseDown` function of the `MineBlock` script right before the `Destroy` statement.
 
-     ![](./ScreenCaps/droppedblockprefab_onmousedown_instantiate.png)
+     ![Instantiate On Mouse Down](./ScreenCaps/droppedblockprefab_onmousedown_instantiate.png "Instantiate On Mouse Down")
 
      This causes the `DroppedBlock` prefab to be &ldquo;instantiated&rdquo; as a game object
      at the same position as the block that was clicked and with the rotation
@@ -915,7 +915,7 @@ generate an actual terrain rather than a scattering of hand-placed blocks.
 
   9. Save.
 
-     ![](./ScreenCaps/script_mineblock_file_save.png)
+     ![Save the Script](./ScreenCaps/script_mineblock_file_save.png "Save the Script")
 
   9. Back in Unity, select the `FPSController` game object
 
@@ -970,7 +970,114 @@ take.
 
 ### Score Counter / Inventory
 
-  1. TODO
+  1. `Create | UI | Text`
+
+     ![Create a UI Text Object](./ScreenCaps/ui_text_create.png "Create a UI Text Object")
+
+     Create a `UI` `Text` game object in the `Hiearchy View`.
+     It will appear as a child of a `Canvas` object which get automatically
+     created for this purpose.
+
+     ![Select the UI Text Object](./ScreenCaps/ui_text_selected.png "Select the UI Text Object")
+
+     There is also an `EventSystem` game object that is created automatically
+     at this point which we will ignore for now.
+
+  2. Set an `Anchor Preset`.
+
+     ![Select the Anchor Preset menu](./ScreenCaps/ui_text_anchor_presets_select.png)
+
+     Select the `Anchor Preset` menu in the `Inspector` for the `Text` game object.
+
+     ![Anchor Preset Menu](./ScreenCaps/ui_text_anchor_presets.png)
+
+     Hold down the `Alt` key. See how the annotations change to signify
+     position.
+
+     ![Anchor Preset Menu with Alk Key Down](./ScreenCaps/ui_text_anchor_presets_alt.png "Anchor Preset Menu with Alk Key Down")
+
+     Select a desired position. I propose the bottom middle since that is where
+     the Minecraft hotbar is displayed.
+
+     ![Anchor Preset Selected](./ScreenCaps/ui_text_anchor_presets_alt_selected.png)
+
+  3. Change the contents of the `Text` field from `New Text` to `0`.
+
+     ![Changing The Default Text](./ScreenCaps/ui_text_changing.png "Changing The Default Text")
+
+     ![Default Text Changed](./ScreenCaps/ui_text_changed.png "Default Text Changed")
+     
+  4. Increase the font size a bit:
+
+     ![Increase Font Size](./ScreenCaps/ui_text_font_size_24.png)
+
+  5. Center the text by clicking the center `Alignment` button in the `Paragraph` section.
+
+     ![Center the Text](./ScreenCaps/ui_text_center.png "Center the Text")
+
+  6. Go to Mono and select the `PickUp` script tab.
+
+     ![Select Pickup Script Tab](./ScreenCaps/script_pickup_select_tab.png "Select Pickup Script Tab")
+
+  7. Add this `using` directive
+
+           using UnityEngine.UI;
+
+     at the top of the file:
+
+     ![Using UnityEngine.UI](./ScreenCaps/script_pickup_using_ui.png "Using UnityEngine.UI")
+
+     This will allow us to access the `Text` component of the `Text` game object.
+
+  8. Add this private static variable declaration
+
+           private static int numCollected = 0;
+
+     and this private variable declaration
+
+           private Text numCollectedText;
+
+     at the beginning of the `PickUp` class:
+
+     ![Num Collected Vars in PickUp Script](./ScreenCaps/script_pickup_numcollected_vars.png "Num Collected Vars in PickUp Script")
+
+  9. Put this line
+
+           numCollectedText = GameObject.Find("Text").GetComponent<Text>();
+
+     in the Start function:
+
+     ![Code to Find Text Object](./ScreenCaps/script_pickup_find_text_object.png "Code to Find Text Object")
+
+  9. Finally, put these lines
+
+           numCollected++;
+           numCollectedText.text = numCollected.ToString();
+
+     in the `OnTriggerEnter` function:
+
+     ![Lines to Update Num Collected](./ScreenCaps/script_pickup_numcollected_update.png "Lines to Update Num Collected")
+
+  9. Save.
+
+     ![Save the Script](./ScreenCaps/script_mineblock_file_save.png "Save the Script")
+
+  9. Go back to Unity and save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  9. Play the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+     See the counter increment whenever you pick up a dropped block.
+
+  9. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
+
+
 
 ### More Elaborate Mouse Lock Mechanism
 
