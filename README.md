@@ -13,7 +13,7 @@ Developed with
 Should work the same in Windows just with the usual OS interface differences.
 
 <a name="toc"></a>
-## TOC
+## Table of Contents (TOC)
 
   * [Preliminaries](#prelims)
   * [Basic Objects and Mechanics](#basics)
@@ -33,8 +33,18 @@ Should work the same in Windows just with the usual OS interface differences.
     * [Balancing the Volume of Sound Effects](#volume)
   * [Terrain](#terrain)
   * [Optional Stuff](#optional)
+    * [Turn off shadows?](#shadows)
+    * [Add a Material to the Block Prefab](#blockmaterial)
+    * [Add a Material to the DroppedBlock Prefab](#dropmaterial)
+    * [Animate Dropped Blocks](#animatedrops)
+    * [Score Counter / Inventory](#pickupcounter)
+    * [More Elaborate Mouse Lock Mechanism](#bettermouselock)
+    * [Replace Cursor Pointer with Crosshairs](#crosshairs)
+    * [Outline Blocks on Focus](#focus)
+    * [Texture Map the Blocks](#texturemapping)
 
 <a name="prelims"></a>
+[Back to TOC](#toc)
 ## Preliminaries
 
 Create a 3D project and select the default layout in the editor.
@@ -1010,22 +1020,32 @@ The following list of tasks can be done in any order and independently of the
 others. They are listed roughly in order of how much time they should probably
 take.
 
+<a name="shadows"></a>
+[Back to TOC](#toc)
 ### Turn off shadows?
 
   1. TODO
 
+<a name="blockmaterial"></a>
+[Back to TOC](#toc)
 ### Add a Material to the Block Prefab
 
   1. TODO
 
+<a name="dropmaterial"></a>
+[Back to TOC](#toc)
 ### Add a Material to the DroppedBlock Prefab
 
   1. TODO
 
+<a name="animatedrops"></a>
+[Back to TOC](#toc)
 ### Animate Dropped Blocks
 
   1. TODO
 
+<a name="pickupcounter"></a>
+[Back to TOC](#toc)
 ### Score Counter / Inventory
 
   1. `Create | UI | Text`
@@ -1137,18 +1157,43 @@ take.
 
 
 
+<a name="bettermouselock"></a>
+[Back to TOC](#toc)
 ### More Elaborate Mouse Lock Mechanism
 
   1. TODO
 
+<a name="crosshairs"></a>
+[Back to TOC](#toc)
 ### Replace Cursor Pointer with Crosshairs
 
   1. TODO
 
+<a name="focus"></a>
+[Back to TOC](#toc)
 ### Outline Blocks on Focus
 
   1. TODO
 
+<a name="texturemapping"></a>
+[Back to TOC](#toc)
 ### Texture Map the Blocks
 
   1. TODO
+
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
+<br/> <br/> <br/> <br/>
