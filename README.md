@@ -49,11 +49,25 @@ Should work the same in Windows just with the usual OS interface differences.
 
 Create a 3D project and select the default layout in the editor.
 
-  1. 3D project
+  1. Click to start a new project. (The following is what you should see when you start Unity.
+     If, on the other hand, you already started Unity and have an existing project open,
+     select `New Project...` under the `File` menu.)
+
+     ![New Project](./ScreenCaps/project_new.png "New Project")
+
+     Name the project.
+
+     ![Name the Project](./ScreenCaps/project_name.png "Name the Project")
+
+     3D should be highlighted.
 
      ![3D Project](./ScreenCaps/project_3d.png "3D Project")
 
-  2. Default layout
+     Click the create the project.
+
+     ![Click to Create the Project](./ScreenCaps/project_create.png "Click to Create the Project")
+
+  2. Select the default layout.
 
      ![Defaut Layout](./ScreenCaps/layout_default.png "Default Layout")
 
@@ -1090,7 +1104,7 @@ take.
 [Back to TOC](#toc)
 ### Add a Material to the DroppedBlock Prefab
 
-  1. TODO
+*Exercise*
 
 <a name="animatedrops"></a>
 [Back to TOC](#toc)
