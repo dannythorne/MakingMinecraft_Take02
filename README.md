@@ -1030,7 +1030,61 @@ take.
 [Back to TOC](#toc)
 ### Add a Material to the Block Prefab
 
-  1. TODO
+  1. Right click in the `Assets` folder and select to `Create` a `Material` asset.
+
+     ![Create a Material](./ScreenCaps/blockmaterial_create.png "Create a Material")
+
+     It will be named `New Material` by default.
+
+     ![New Material](./ScreenCaps/blockmaterial_created.png "New Material")
+
+     Rename it to `BlockMaterial`.
+
+     ![Renamed to BlockMaterial](./ScreenCaps/blockmaterial_renamed.png "Renamed to BlockMaterial")
+
+  1. Click the white color box toward the top of the `Inspector` for the `BlockMaterial`.
+
+     ![Color Select Box](./ScreenCaps/blockmaterial_color_select.png "Color Select Box")
+
+  1. Choose a color.
+
+     ![Choose a Color](./ScreenCaps/blockmaterial_color_selected.png "Choose a Color")
+
+  1. Close the `Color` selector.
+
+     ![Close the Color Selector](./ScreenCaps/blockmaterial_color_selector_close.png "Close the Color Selector")
+
+  1. Select the `Block` prefab in the `Assets` folder.
+
+     ![Select the Block Prefab](./ScreenCaps/block_select.png "Select the Block Prefab")
+
+  1. Click the little triangle to expand the `Materials` property of the `Mesh Renderer` component.
+
+     ![Expand Mesh Renderer Materials](./ScreenCaps/block_meshrenderer_materials_expand.png "Expand Mesh Renderer Materials")
+
+     See the `Element 0` field.
+
+     ![See the Element 0 Field](./ScreenCaps/block_material_field.png "See the Element 0 Field")
+
+  1. Drag the `BlockMaterial` asset into that field
+
+     ![Dropping the BlockMaterial Asset into the Element 0 Field](./ScreenCaps/blockmaterial_dropping.png "Dropping the BlockMaterial Asset into the Element 0 Field")
+     ![BlockMaterial Dropped in the Element 0 Field](./ScreenCaps/blockmaterial_dropped.png "BlockMaterial Dropped in the Element 0 Field")
+
+  9. Save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  9. Play the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+     The blocks should now appear in whatever color you selected for the material.
+
+  9. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
 
 <a name="dropmaterial"></a>
 [Back to TOC](#toc)
