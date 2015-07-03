@@ -114,9 +114,7 @@ bedrock.
 [Back to TOC](#toc)
 ### Blocks
 
-We will make a block prefab, add a script to it, and add a material to it.
-Explanations of prefabs, scripts, and materials are provided below as
-encountered (TODO).
+We will now make a block that disappears when clicked on.
 
 #### Making a Block Prefab
 
