@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5886132f65cf404ca7bb0e4a8cc84df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crossHairsRaw: {fileID: 4900000, guid: 0a1114e48bc054cb5aba9d124f99833c, type: 3}
 --- !u!1 &656753742
 GameObject:
   m_ObjectHideFlags: 0

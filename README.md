@@ -152,10 +152,10 @@ We will now make a block that disappears when clicked on.
      Prefabs can be added to the game multiple times resulting in multiple game
      objects that are clones of the prefab. Then changes to the prefab apply to
      all of those game objects. This is very useful to avoid having to modify
-     loads of game objects just to make a simple change.  It is also useful to
-     make prefabs because they can be &ldquo;instantiated&rdquo; from scripts
-     dynamically at run time.  We will eventually want to do this in order to
-     produce a procedurally generated terrain of blocks.
+     lots of game objects just to make a simple change.  Another reason it is
+     useful to make prefabs is because they can be &ldquo;instantiated&rdquo;
+     from scripts dynamically at run time.  We will eventually want to do this
+     in order to produce a procedurally generated terrain of blocks.
 
   4. Drag a few `Block` prefabs into the scene.
 
@@ -1233,7 +1233,179 @@ take.
 [Back to TOC](#toc)
 ### Replace Cursor Pointer with Crosshairs
 
-  1. TODO
+This task involves first making an image of crosshairs.
+The following instructions are for [GIMP](http://www.gimp.org/),
+the GNU Image Manipulation Program, which is
+a free image editing application similar in functionality to Photoshop.
+Feel free to produce the image in whatever image editing application you prefer
+or even just find an image of crosshairs online.
+(The image file format can be `PNG` or `JPG`. Maybe it can be other formats,
+too, but I'm not sure.)
+
+  1. Run GIMP and create a new image.
+
+     ![New GIMP Image](./ScreenCaps/gimp_new.png "New GIMP Image")
+
+     Adjust the size to something fairly small and probably square is best.
+     For the tutorial, we'll do a 16&times;16 image.
+
+     ![Size the New Image](./ScreenCaps/gimp_new_image_size.png "Size the New Image")
+
+     Click `Okay` to create the new image.
+
+     ![Click Okay](./ScreenCaps/gimp_new_okay.png "Click Okay")
+
+     In the zoom dropdown menu select 800%.
+
+     ![Zoom](./ScreenCaps/gimp_zoom.png "Zoom")
+
+     That way we can edit the image pixels easily.
+
+     ![Zoomed](./ScreenCaps/gimp_zoomed.png "Zoomed")
+
+  2. Select the `Pencil Tool` from the `Toolbox` window.
+
+     ![Select Pencil Tool](./ScreenCaps/gimp_pencil.png "Select Pencil Tool")
+
+     Make sure that under `Tool Options` the `Mode` is `Normal` and the `Brush` is `1. Pixel`
+     and the `Size` is `1.00`.
+
+  3. Draw horizontal and vertical lines for crosshairs.
+
+     ![Draw Lines](./ScreenCaps/gimp_crosshairs.png "Draw Lines")
+
+     Maybe decorate them a bit.
+
+     ![Decorate](./ScreenCaps/gimp_crosshairs_decorated.png "Decorate")
+
+     Feel free to draw your crosshairs however you like. They don't have to look the same as this.
+
+  4. Make the white background of the crosshairs transparent.
+
+     ![Make Background Transparent](./ScreenCaps/gimp_color_to_alpha_select.png "Make Background Transparent")
+
+     Select `Color To Alpha...` from the `Colors` menu.
+
+     ![Click Okay](./ScreenCaps/gimp_color_to_alpha_okay.png "Click Okay")
+
+     It should default to white as the color to convert to `Alpha`, i.e., make transparent,
+     so just click `Okay`.
+
+     ![Transparent](./ScreenCaps/gimp_alpha.png "Transparent")
+
+  4. Export the image to a `PNG` file.
+
+     ![Export](./ScreenCaps/gimp_export.png "Export")
+
+     Expand the `Select File Type` menu.
+
+     ![Expand File Type Menu](./ScreenCaps/gimp_file_type_expand.png "Expand File Type Menu")
+
+     Expanded, it will show a list of file types to select from:
+
+     ![Expanded](./ScreenCaps/gimp_file_type_expanded.png "Expanded")
+
+     Select `PNG image`.
+
+     ![Select PNG](./ScreenCaps/gimp_select_png.png "Select PNG")
+
+     Now name the file `crosshairs.png.bytes`.
+
+     ![Name the File](./ScreenCaps/gimp_export_name.png "Name the File")
+
+     Select the `Assets` folder of your project to save it in and then click the `Export` button.
+
+     A `PNG` file with a `.bytes` extension on the file name is very unusual!
+     Unity wants it that way, but GIMP is skeptical.
+     You will need to confirm that you do want to go with that unusual name.
+
+     ![Confirm Name](./ScreenCaps/gimp_confirm_name.png "Confirm Name")
+
+     You will be presented with another dialog window containing various options.
+
+     ![Export Options](./ScreenCaps/gimp_export_details.png "Export Options")
+
+     Just click the `Export` button to accept the defaults.
+
+  5. Go to Unity and notice the new `crosshairs.png` asset in the `Assets` folder.
+
+     ![New Crosshairs Asset](./ScreenCaps/crosshairs_new.png "New Crosshairs Asset")
+
+  6. Go to the `MouseLock` script in Mono and add these lines
+
+           public TextAsset crossHairsRaw;
+           private Texture2D crossHairs;
+
+     at the top of the `MouseLock` class:
+
+     ![MouseLock Texture Variables](./ScreenCaps/script_mouselock_texture_variables.png "Mouselock Texture Variables")
+
+  7. Put these lines
+
+           crossHairs = new Texture2D(16,16);
+           crossHairs.LoadImage(crossHairsRaw.bytes);
+           Cursor.SetCursor( crossHairs, new Vector2(8,8), CursorMode.Auto);
+
+     in the `Start` function of the `MouseLock` class after the line that sets the cursor lock state:
+
+     ![MouseLock Load Image](./ScreenCaps/script_mouselock_load_image.png "MouseLock Load Image")
+
+     If you created a crosshairs image that is bigger than 16&times;16, you'll need to adjust the numbers
+     for the size of the `Texture2D` object and the `Vector2` argument in the `SetCursor` function call.
+     The `Vector2` object specifies which point inside the image should be used as the cursor point.
+     For a crosshairs shaped cursor it makes sense for it to be in the middle of the cursor image.
+
+  8. Put this line
+
+           Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto);
+
+     inside the `if` statement of the `Update` function after the line that
+     unlocks the cursor:
+
+     ![MouseLock Reset Cursor](./ScreenCaps/script_mouselock_reset_cursor.png "MouseLock Reset Cursor")
+
+     That sets the cursor back to the default.
+     `Vector2.zero` means coordinates `(0,0)` which are at the top left corner of the cursor image
+     which corresponds to the tip of the point of the default cursor.
+
+  9. Save.
+
+     ![Save the Script](./ScreenCaps/script_mineblock_file_save.png "Save the Script")
+
+  9. Now go back to Unity and select the `FPSController` in the `Hierarchy View`.
+
+     ![Select FPSController](./ScreenCaps/fps_controller_selected5.png "Select FPSController")
+
+     Scroll down in the `Inspector View` for the `FPSController` and notice the `Cross Hairs Raw` field in the
+     `Mouse Lock (Script)` component.
+
+  9. Drag the `crosshairs.png` asset into that `Cross Hairs Raw` field of the `Mouse Lock (Script)` component.
+
+     ![Adding Crosshairs to Script Field](./ScreenCaps/crosshairs_adding.png "Adding Crosshairs to Script Field")
+     ![Crosshairs Added](./ScreenCaps/crosshairs_added.png "Crosshairs Added")
+
+
+  9. Save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  9. Play the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+
+     The cursor should change to the crosshairs shape.
+
+  9. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
+
+     You might have to stop and restart the game in order to get it to work. Also, when running the game inside
+     the unity editor, the cursor many not change back from the crosshairs cursor when you press `ESC`, or at
+     least not until you move the cursor outside of the `Game View`.
+
+
+
 
 <a name="focus"></a>
 [Back to TOC](#toc)
