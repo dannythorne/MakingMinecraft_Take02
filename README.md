@@ -405,12 +405,25 @@ destroyed.
      at the same position as the block that was clicked and with the rotation
      that we specified in the `Inspector` for the `DroppedBlock` prefab.
 
-  10. Go back to Unity and play the game. See that when you click a `Block` game object, a
+  9. Save the script.
+
+     ![Save the Script](./ScreenCaps/script_mineblock_file_save.png "Save the Script")
+
+  9. Go back to Unity and save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  9. Play the game.
+
+     ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
+  
+      See that when you click a `Block` game object, a
       `DroppedBlock` game object appears in its place.
 
-  11. Stop the game.
+  9. Stop the game.
 
-  12. Save the scene and the project.
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
 
 <a name="fps"></a>
 [Back to TOC](#toc)
@@ -528,6 +541,11 @@ destroyed.
      This will make it possible for the character to fit through one block wide
      and two block high openings (eventually).
 
+  4. Save.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
 <a name="mouselock"></a>
 [Back to TOC](#toc)
 ### Lock the Mouse
@@ -592,7 +610,11 @@ screen (like the crosshairs of Minecraft).
 
      ![Capture ESC in Update Function](./ScreenCaps/mouselock_update01.png "Capture ESC in Update Function")
 
-  9. Save the scene and the project.
+  9. Save the script.
+
+     ![Save the Script](./ScreenCaps/script_mineblock_file_save.png "Save the Script")
+
+  9. Go back to Unity and save the scene and the project.
 
      ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
      ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
@@ -607,8 +629,17 @@ screen (like the crosshairs of Minecraft).
      ![Cursor Centered in Game View](./ScreenCaps/mouselock_cursor_centered.png "Cursor Centered in Game View")
 
      The mouse lock mechanism can be a bit flakey in the `Game View`. Sometimes
-     it doesn't work right. To see it work reliably, we need to build the game
-     as a native application and run it that way.
+     it doesn't work right. To see it work reliably, we might need to build the
+     game as a native application.
+
+  9. Stop the game.
+
+     ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
+
+     In my experience, if the cursor lock doesn't work the first time the game is run, stopping it and
+     then running it again will make it work, so try running it again at this point. (And then stop it
+     before proceeding.)
+     
 
 <a name="build"></a>
 [Back to TOC](#toc)
@@ -648,11 +679,13 @@ screen (like the crosshairs of Minecraft).
 
      ![Choose Resolution](./ScreenCaps/buildsettings_configuration_resolution.png "Choose Resolution")
 
-  8. Optionally check the `Windowed` check box.
+  8. Check the `Windowed` check box.
 
-     ![Optionally Check Windowed](./ScreenCaps/buildsettings_configuration_windowed.png)
+     ![Check Windowed](./ScreenCaps/buildsettings_configuration_windowed.png "Check Windowed")
 
      This will make the application run inside a window rather than in full screen.
+     (Optionally, you can leave that checkbox unchecked to run in full screen mode, but it might be
+     tricky to escape out of the game when it is running that way.)
 
   9. `Play!`
 
@@ -735,7 +768,7 @@ as the player &ldquo;picks up&rdquo; the item.
 
   9. Save the script.
 
-     ![Save the PickUp Script](./ScreenCaps/script_pickup_save.png)
+     ![Save the Script](./ScreenCaps/script_mineblock_file_save.png "Save the Script")
 
   9. Back in Unity, run the game.
 
@@ -818,7 +851,12 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
 
      ![Save the MineBlock Script](./ScreenCaps/script_mineblock_file_save.png "Save the MineBlock Script")
 
-  7. Go back to Unity and play the game.
+  9. Go back to Unity and save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  7. Play the game.
 
      ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
 
@@ -828,11 +866,6 @@ Breaking blocks and collecting dropped items is much more satisfying with sound 
   8. Stop the game.
 
      ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
-
-  9. Save the scene and project.
-
-     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
-     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
 
 <a name="pickupsound"></a>
 [Back to TOC](#toc)
@@ -875,7 +908,12 @@ blocks without looking at the following instructions.*
 
      ![Save PickUp Script](./ScreenCaps/script_mineblock_file_save.png "Save PickUp Script")
 
-  7. Go back to Unity and play the game.
+  9. Go back to Unity and save the scene and project.
+
+     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
+     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
+
+  7. Play the game.
 
      ![Run the Game](./ScreenCaps/game_running.png "Run the Game")
 
@@ -886,11 +924,6 @@ blocks without looking at the following instructions.*
   8. Stop the game.
 
      ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
-
-  9. Save the scene and project.
-
-     ![Save Scene](./ScreenCaps/scene_save_cropped.png "Save Scene")
-     ![Save Project](./ScreenCaps/project_save_cropped.png "Save Project")
 
 <a name="volume"></a>
 [Back to TOC](#toc)
@@ -923,7 +956,8 @@ Let's turn the `FPSController` sound effects down a little.
 
      ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
 
-  6. Repeat from step 2 until satisfied with volume balance.
+  6. If unsatisfied with volume balance, go back to step 2, otherwise continue
+     to the next section.
 
 <a name="terrain"></a>
 [Back to TOC](#toc)
