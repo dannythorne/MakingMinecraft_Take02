@@ -261,6 +261,10 @@ We will now make a block that disappears when clicked on.
      However, it is recommended that you type the code yourself to help you
      learn the patterns.
 
+  9. Save the script in Mono.
+
+     ![Save the Script](./ScreenCaps/script_mineblock_file_save.png "Save the Script")
+
   10. Go back to Unity and run the game by clicking on the play button.
 
      ![Run the Game](./ScreenCaps/game_run.png "Run the Game")
