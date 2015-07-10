@@ -1081,6 +1081,23 @@ take.
      In the `Mesh Renderer` component, you can toggle both whether the object casts
      shadows and whether the object receives shadows.
 
+<a name="animatedrops"></a>
+[Back to TOC](#toc)
+### Animate Dropped Blocks
+
+  1. Put this line
+
+           transform.RotateAround( transform.position, Vector3.up, 100*Time.deltaTime);
+
+     in the Update function of the `PickUp` class:
+
+     ![](./ScreenCaps/script_pickup_rotate.png)
+
+     The first argument `transform.position` specifies the center of the rotation.
+     The second argument `Vector3.up` specifies the axis of rotation.
+     The third argument, a multiple of `Time.deltaTime` specifies the speed of the rotation.
+     Adjust that multiple `100` to suit.
+
 <a name="blockmaterial"></a>
 [Back to TOC](#toc)
 ### Add a Material to the Block Prefab
@@ -1145,13 +1162,7 @@ take.
 [Back to TOC](#toc)
 ### Add a Material to the DroppedBlock Prefab
 
-*Exercise*
-
-<a name="animatedrops"></a>
-[Back to TOC](#toc)
-### Animate Dropped Blocks
-
-  1. TODO
+**Exercise:** *Complete this task on your own. Make the game play the `pop.wav` sound when the player picks up a dropped block.*
 
 <a name="pickupcounter"></a>
 [Back to TOC](#toc)

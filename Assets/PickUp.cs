@@ -18,6 +18,8 @@ public class PickUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		transform.RotateAround( transform.position, Vector3.up, 100*Time.deltaTime);
 	
 	}
 
