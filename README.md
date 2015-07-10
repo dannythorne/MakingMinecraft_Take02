@@ -39,8 +39,8 @@ Should work the same in Windows just with the usual OS interface differences.
     * [Add a Material to the DroppedBlock Prefab](#dropmaterial)
     * [Score Counter / Inventory](#pickupcounter)
     * [More Elaborate Mouse Lock Mechanism](#bettermouselock)
-    * [Replace Cursor Pointer with Crosshairs](#crosshairs)
-    * [Mechanism to Relock Cursor After Unlocking](#relock)
+      * [Replace Cursor Pointer with Crosshairs](#crosshairs)
+      * [Mechanism to Relock Cursor After Unlocking](#relock)
     * [Outline Blocks on Focus](#focus)
     * [Texture Map the Blocks](#texturemapping)
 
@@ -1090,7 +1090,7 @@ take.
 
            transform.RotateAround( transform.position, Vector3.up, 100*Time.deltaTime);
 
-     in the Update function of the `PickUp` class:
+     in the `Update` function of the `PickUp` class:
 
      ![](./ScreenCaps/script_pickup_rotate.png)
 
@@ -1469,7 +1469,7 @@ too, but I'm not sure.)
              Cursor.SetCursor( crossHairs, new Vector2(8,8), CursorMode.Auto);
            }
 
-     after `if` statement in the Update function:
+     after `if` statement in the `Update` function:
 
      ![](./ScreenCaps/script_mouselock_relock.png)
 
