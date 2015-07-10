@@ -34,12 +34,13 @@ Should work the same in Windows just with the usual OS interface differences.
   * [Terrain](#terrain)
   * [Optional Stuff](#optional)
     * [Turn off shadows?](#shadows)
+    * [Animate Dropped Blocks](#animatedrops)
     * [Add a Material to the Block Prefab](#blockmaterial)
     * [Add a Material to the DroppedBlock Prefab](#dropmaterial)
-    * [Animate Dropped Blocks](#animatedrops)
     * [Score Counter / Inventory](#pickupcounter)
     * [More Elaborate Mouse Lock Mechanism](#bettermouselock)
     * [Replace Cursor Pointer with Crosshairs](#crosshairs)
+    * [Mechanism to Relock Cursor After Unlocking](#relock)
     * [Outline Blocks on Focus](#focus)
     * [Texture Map the Blocks](#texturemapping)
 
@@ -1281,11 +1282,9 @@ take.
 [Back to TOC](#toc)
 ### More Elaborate Mouse Lock Mechanism
 
-  1. TODO
-
 <a name="crosshairs"></a>
 [Back to TOC](#toc)
-### Replace Cursor Pointer with Crosshairs
+#### Replace Cursor Pointer with Crosshairs
 
 This task involves first making an image of crosshairs.
 The following instructions are for [GIMP](http://www.gimp.org/),
@@ -1458,8 +1457,24 @@ too, but I'm not sure.)
      the unity editor, the cursor many not change back from the crosshairs cursor when you press `ESC`, or at
      least not until you move the cursor outside of the `Game View`.
 
+<a name="relock"></a>
+[Back to TOC](#toc)
+#### Mechanism to Relock Cursor After Unlocking
 
+  1. Mouse click to lock cursor. Add `else if` clause
 
+           else if( Input.GetMouseButtonDown(0))
+           {
+             Cursor.lockState = CursorLockMode.Locked;
+             Cursor.SetCursor( crossHairs, new Vector2(8,8), CursorMode.Auto);
+           }
+
+     after `if` statement in the Update function:
+
+     ![](./ScreenCaps/script_mouselock_relock.png)
+
+     As usual, this might not work flawlessly when running the game in the Unity editor.
+     Try doing a `File | Build & Run`.
 
 <a name="focus"></a>
 [Back to TOC](#toc)

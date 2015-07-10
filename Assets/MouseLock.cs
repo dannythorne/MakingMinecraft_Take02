@@ -25,5 +25,10 @@ public class MouseLock : MonoBehaviour {
 
 			Cursor.SetCursor( null, Vector2.zero, CursorMode.Auto);
 		}
+		else if( Input.GetMouseButtonDown(0))
+		{
+			Cursor.lockState = CursorLockMode.Locked;
+			Cursor.SetCursor( crossHairs, new Vector2(8,8), CursorMode.Auto);
+		}
 	}
 }
