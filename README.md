@@ -956,7 +956,7 @@ Let's turn the `FPSController` sound effects down a little.
 
      ![Stop the Game](./ScreenCaps/game_stopped.png "Stop the Game")
 
-  6. If unsatisfied with volume balance, go back to step 2, otherwise continue
+  6. If unsatisfied with the volume balance, go back to step 2, otherwise continue
      to the next section.
 
 <a name="terrain"></a>
@@ -1072,9 +1072,14 @@ take.
 
 <a name="shadows"></a>
 [Back to TOC](#toc)
-### Turn off shadows?
+### Turn Off Shadows
 
-  1. TODO
+  1. If you wish, you may turn off shadows for the `Block` and/or `DroppedBlock` prefabs.
+
+     ![](./ScreenCaps/shadows.png)
+
+     In the `Mesh Renderer` component, you can toggle both whether the object casts
+     shadows and whether the object receives shadows.
 
 <a name="blockmaterial"></a>
 [Back to TOC](#toc)
