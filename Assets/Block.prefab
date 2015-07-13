@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809c73597d73642f0b42ef6c9a35c2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineMaterial: {fileID: 2100000, guid: ec575daae89ec4d1194dab6587b68126, type: 2}
   droppedBlockPrefab: {fileID: 101970, guid: 1c1ab90467c444e959745b093ef311c9, type: 2}
   mineSound: {fileID: 8300000, guid: 860db83897ed54a43bed4420dd6a7a1a, type: 3}
 --- !u!1001 &100100000
@@ -110,6 +111,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lineMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ec575daae89ec4d1194dab6587b68126, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115908}

@@ -430,6 +430,18 @@ destroyed.
 [Back to TOC](#toc)
 ## First Person Character
 
+This section adds a first person character to the scene so that the player can
+look around and move around in a way similar to Minecraft.
+
+Beware: *The first person character asset is provided by Unity in the
+`Standard Assets` package, so `Standard Assets` must be installed. If they are
+not, the `Import Package` menu in the very first step below will not contain
+the shown options. In that case, go to the `Asset Store`:*
+
+![Asset Store Under Window Menu](./ScreenCaps/asset_store.png "Asset Store Under Window Menu")
+
+*and download/import `Standard Assets` from there instead.*
+
 <a name="import"></a>
 [Back to TOC](#toc)
 ### Import Assets
@@ -437,6 +449,9 @@ destroyed.
   1. `Assets | Import Package | Characters`
 
      ![Import Package Characters](./ScreenCaps/assets_characters.png "Import Package Characters")
+
+     If you do not see the shown options in your `Import Package` menu, see the note above. You will
+     need to install/import them from the `Asset Store`.
 
   2. Click the "None" button to uncheck all of the options.
 
