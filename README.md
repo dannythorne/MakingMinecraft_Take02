@@ -1297,6 +1297,8 @@ take.
 [Back to TOC](#toc)
 ### More Elaborate Mouse Lock Mechanism
 
+We will replace the cursor pointer with crosshairs and allow for relocking after unlocking.
+
 <a name="crosshairs"></a>
 [Back to TOC](#toc)
 #### Replace Cursor Pointer with Crosshairs
@@ -1499,18 +1501,18 @@ We will use the Unity GL graphics library.
 
   1. Create a new C# script.
 
-     ![](./ScreenCaps/script_wireframe_create.png)
+     ![Create Script](./ScreenCaps/script_wireframe_create.png "Create Script")
 
   2. Call it `WireFrame`.
 
-     ![](./ScreenCaps/script_wireframe_named.png)
+     ![Name it WireFrame](./ScreenCaps/script_wireframe_named.png "Name it WireFrame")
 
   3. Attach it to the `FirstPersonCharacter` game object. The GL functions are typically called from a script
      attached to the camera, and our camera is in the `FirstPersonCharacter`.
      (See the [Unity GL documentation](http://docs.unity3d.com/ScriptReference/GL.html) for more information)
 
-     ![](./ScreenCaps/fpscontroller_selected4.png)
-     ![](./ScreenCaps/script_wireframe_attached.png)
+     ![Select FPSController](./ScreenCaps/fpscontroller_selected4.png "Select FPSController")
+     ![Attache WireFrame to FPSController](./ScreenCaps/script_wireframe_attached.png "Attache WireFrame to FPSController")
 
   4. Double-click the `WireFrame` script asset to open it in Mono and add the
      following lines
@@ -1520,7 +1522,7 @@ We will use the Unity GL graphics library.
 
      at the top of the class:
 
-     ![](./ScreenCaps/script_wireframe_variable_declarations.png)
+     ![WireFrame Variable Declarations](./ScreenCaps/script_wireframe_variable_declarations.png "WireFrame Variable Declarations")
 
      The `wireMaterial` object will be used for draw lines with GL.
      The `targetBlock` object will be the block which lines are to be drawn around.
@@ -1531,25 +1533,25 @@ We will use the Unity GL graphics library.
 
   6. Go back to Unity and create a new Material asset.
 
-     ![](./ScreenCaps/wirematerial_create.png)
+     ![New Material](./ScreenCaps/wirematerial_create.png "New Material")
 
      Name it `WireMaterial`.
 
-     ![](./ScreenCaps/wirematerial_named.png)
+     ![Name it WireMaterial](./ScreenCaps/wirematerial_named.png "Name it WireMaterial")
 
      Change it to black.
 
-     ![](./ScreenCaps/wirematerial_change_to_black.png)
+     ![Change Material Color to Black](./ScreenCaps/wirematerial_change_to_black.png "Change Material Color to Black")
 
   7. Select the `FirstPersonCharacter` object and drag the `WireMaterial` asset
      into the corresponding field of the `WireFrame` script.
 
-     ![](./ScreenCaps/wirematerial_attached.png)
+     ![Attach WireMaterial to WireFrame Script](./ScreenCaps/wirematerial_attached.png "Attach WireMaterial to WireFrame Script")
 
   8. With the `FirstPersonCharacter` still selected, drag the `Block` prefab
      into the `Target Block` field of the `WireFrame` script.
     
-     ![](./ScreenCaps/script_wireframe_block_attached.png)
+     ![Attach Block Prefab to WireFrame Script](./ScreenCaps/script_wireframe_block_attached.png "Attach Block Prefab to WireFrame Script")
 
      Note that this is just temporary. In later steps, we will code the `targetBlock` to be
      assigned dynamically at run time based on which block the player is looking at.
@@ -1560,7 +1562,7 @@ We will use the Unity GL graphics library.
   
      at the top of the class:
 
-     ![](./ScreenCaps/script_mineblock_variable_declaration_fpscontroller.png)
+     ![MineBlock Variable Declaration](./ScreenCaps/script_mineblock_variable_declaration_fpscontroller.png "MineBlock Variable Declaration")
 
   9. Add this line
 
@@ -1568,7 +1570,7 @@ We will use the Unity GL graphics library.
 
      to the `Start` function:
 
-     ![](./ScreenCaps/script_mineblock_find_fps.png)
+     ![MineBlock Find FPSController](./ScreenCaps/script_mineblock_find_fps.png "MineBlock Find FPSController")
 
   9. Add functions `OnMouseEnter` and `OnMouseExit`
 
@@ -1582,7 +1584,7 @@ We will use the Unity GL graphics library.
 
      at the bottom of the class after the `OnMouseDown` function:
 
-     ![](./ScreenCaps/script_mineblock_onmouseenter_onmouseexit.png)
+     ![MineBlock OnMouseEnter and OnMouseExit](./ScreenCaps/script_mineblock_onmouseenter_onmouseexit.png "MineBlock OnMouseEnter and OnMouseExit")
 
   9. Add this line
 
@@ -1590,7 +1592,7 @@ We will use the Unity GL graphics library.
 
      to the `OnMouseEnter` function:
 
-     ![](./ScreenCaps/script_mineblock_set_targetblock.png)
+     ![Set TargetBlock](./ScreenCaps/script_mineblock_set_targetblock.png "Set TargetBlock")
 
      This assigns the `Block` game object that the player is pointing at to
      become the `targetBlock` in the `WireFrame` script. Now we need to code
@@ -1601,7 +1603,7 @@ We will use the Unity GL graphics library.
      wireframe. But let's not worry about that until the `WireFrame` script
      is actually drawing something.)
 
-  9. Back in the WireFrame script add this function
+  9. Back in the `WireFrame` script add this function
 
            void OnPostRender()
            {
@@ -1609,7 +1611,7 @@ We will use the Unity GL graphics library.
 
      at the end of the class:
 
-     ![](./ScreenCaps/script_wireframe_onpostrender.png)
+     ![WireFrame OnPostRender](./ScreenCaps/script_wireframe_onpostrender.png "WireFrame OnPostRender")
 
   9. Add these lines
 
@@ -1635,7 +1637,7 @@ We will use the Unity GL graphics library.
   
      to the `OnPostRender` function:
 
-     ![](./ScreenCaps/script_wireframe_gl_framework.png)
+     ![WireFrame GL Framework](./ScreenCaps/script_wireframe_gl_framework.png "WireFrame GL Framework")
 
      There are three sets of four lines that need to be drawn around the cube.
      There is one set of four edges on a cube for each of the three directions
@@ -1683,7 +1685,7 @@ We will use the Unity GL graphics library.
 
      Replacing each respective `TODO` in the `OnPostRender` function with the above lines of code results in this:
 
-     ![](./ScreenCaps/script_wireframe_lines.png)
+     ![WireFrame Lines](./ScreenCaps/script_wireframe_lines.png "WireFrame Lines")
 
      The `if` statement checks to be sure `targetBlock` exists before
      attempting to wire frame it. This prevents Unity from becoming confused by
@@ -1701,7 +1703,7 @@ We will use the Unity GL graphics library.
 
      to the top of the `MineBlock` class:
 
-     ![](./ScreenCaps/script_mineblock_drawwireframe_variable_declaration.png)
+     ![MineBlock DrawWireFrame Variable Declaration](./ScreenCaps/script_mineblock_drawwireframe_variable_declaration.png "MineBlock DrawWireFrame Variable Declaration")
 
   9. Add this line
 
@@ -1709,17 +1711,17 @@ We will use the Unity GL graphics library.
 
      to the `Start` function:
 
-     ![](./ScreenCaps/script_mineblock_drawwireframe_init.png)
+     ![Init DrawWireFrame Variable](./ScreenCaps/script_mineblock_drawwireframe_init.png "Init DrawWireFrame Variable")
 
   9. Set `drawWireFrame` to `true` in `OnMouseEnter` and set it to `false` in `OnMouseExit`.
 
-     ![](./ScreenCaps/script_mineblock_drawwireframe_toggle.png)
+     ![DrawWireFrame Toggle](./ScreenCaps/script_mineblock_drawwireframe_toggle.png "DrawWireFrame Toggle")
 
   9. Now, in the `WireFrame` script, augment the condition in the `if` statement as follows:
 
            if( targetBlock && targetBlock.GetComponent<MineBlock>().drawWireFrame)
 
-     ![](./ScreenCaps/script_wireframe_if_drawwireframe.png)
+     ![DrawWireFrame Condition](./ScreenCaps/script_wireframe_if_drawwireframe.png "DrawWireFrame Condition")
 
 <a name="texturemapping"></a>
 [Back to TOC](#toc)
