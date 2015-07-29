@@ -461,7 +461,7 @@ the shown options. In that case, go to the `Asset Store`:*
 
      ![Select FirstPersonCharacter](./ScreenCaps/assets_characters_fpc_select.png "Select FirstPersonCharacter")
 
-     Now just the FirstPersonCharacter asset is selected.
+     Now just the `FirstPersonCharacter` asset is selected.
 
      ![FirstPersonCharacter Selected](./ScreenCaps/assets_characters_fpc_selected.png "FirstPersonCharacter Selected")
 
@@ -1495,7 +1495,231 @@ too, but I'm not sure.)
 [Back to TOC](#toc)
 ### Outline Blocks on Focus
 
-  1. TODO
+We will use the Unity GL graphics library.
+
+  1. Create a new C# script.
+
+     ![](./ScreenCaps/script_wireframe_create.png)
+
+  2. Call it `WireFrame`.
+
+     ![](./ScreenCaps/script_wireframe_named.png)
+
+  3. Attach it to the `FirstPersonCharacter` game object. The GL functions are typically called from a script
+     attached to the camera, and our camera is in the `FirstPersonCharacter`.
+     (See the [Unity GL documentation](http://docs.unity3d.com/ScriptReference/GL.html) for more information)
+
+     ![](./ScreenCaps/fpscontroller_selected4.png)
+     ![](./ScreenCaps/script_wireframe_attached.png)
+
+  4. Double-click the `WireFrame` script asset to open it in Mono and add the
+     following lines
+
+           public Material wireMaterial;
+           public GameObject targetBlock;
+
+     at the top of the class:
+
+     ![](./ScreenCaps/script_wireframe_variable_declarations.png)
+
+     The `wireMaterial` object will be used for draw lines with GL.
+     The `targetBlock` object will be the block which lines are to be drawn around.
+
+  5. Save.
+
+     ![Save the Script](./ScreenCaps/script_mineblock_file_save.png "Save the Script")
+
+  6. Go back to Unity and create a new Material asset.
+
+     ![](./ScreenCaps/wirematerial_create.png)
+
+     Name it `WireMaterial`.
+
+     ![](./ScreenCaps/wirematerial_named.png)
+
+     Change it to black.
+
+     ![](./ScreenCaps/wirematerial_change_to_black.png)
+
+  7. Select the `FirstPersonCharacter` object and drag the `WireMaterial` asset
+     into the corresponding field of the `WireFrame` script.
+
+     ![](./ScreenCaps/wirematerial_attached.png)
+
+  8. With the `FirstPersonCharacter` still selected, drag the `Block` prefab
+     into the `Target Block` field of the `WireFrame` script.
+    
+     ![](./ScreenCaps/script_wireframe_block_attached.png)
+
+     Note that this is just temporary. In later steps, we will code the `targetBlock` to be
+     assigned dynamically at run time based on which block the player is looking at.
+
+  9. Open the `MineBlock` script in Mono and add the following line
+
+           public GameObject fpsController;
+  
+     at the top of the class:
+
+     ![](./ScreenCaps/script_mineblock_variable_declaration_fpscontroller.png)
+
+  9. Add this line
+
+           fpsController = GameObject.Find("FirstPersonCharacter");
+
+     to the `Start` function:
+
+     ![](./ScreenCaps/script_mineblock_find_fps.png)
+
+  9. Add functions `OnMouseEnter` and `OnMouseExit`
+
+           void OnMouseEnter()
+           {
+           }
+
+           void OnMouseExit()
+           {
+           }
+
+     at the bottom of the class after the `OnMouseDown` function:
+
+     ![](./ScreenCaps/script_mineblock_onmouseenter_onmouseexit.png)
+
+  9. Add this line
+
+           fpsController.GetComponent<WireFrame>().targetBlock = gameObject;
+
+     to the `OnMouseEnter` function:
+
+     ![](./ScreenCaps/script_mineblock_set_targetblock.png)
+
+     This assigns the `Block` game object that the player is pointing at to
+     become the `targetBlock` in the `WireFrame` script. Now we need to code
+     the `WireFrame` script to actually draw a wireframe around that block.
+     (There is a loose end to the mechanism in `MineBlock` that we will take care
+     of later.  If the player looks away from a block but not at another block,
+     the last block the player was looking at will remain highlighted with a
+     wireframe. But let's not worry about that until the `WireFrame` script
+     is actually drawing something.)
+
+  9. Back in the WireFrame script add this function
+
+           void OnPostRender()
+           {
+           }
+
+     at the end of the class:
+
+     ![](./ScreenCaps/script_wireframe_onpostrender.png)
+
+  9. Add these lines
+
+           if( targetBlock)
+           {
+               GL.PushMatrix();
+               wireMaterial.SetPass(0);
+               GL.Begin(GL.LINES);
+               //
+               // Left to right lines
+               // TODO
+               //
+               // Up and down lines
+               // TODO
+               //
+               // Front to back lines
+               // TODO
+               //
+               GL.End();
+               GL.PopMatrix();
+           }
+
+  
+     to the `OnPostRender` function:
+
+     ![](./ScreenCaps/script_wireframe_gl_framework.png)
+
+     There are three sets of four lines that need to be drawn around the cube.
+     There is one set of four edges on a cube for each of the three directions
+     in 3D space.
+
+  9. The way a GL line works is by specifying the starting point and ending point of the line
+     with two consecutive calls to `GL.Vertex`.
+
+     The four lines in the right to left direction can be specified relative to
+     the `targetBlock.transform.position` like this:
+
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.forward + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.forward + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.back + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.back + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.forward + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.forward + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.back + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.back + 0.51f*Vector3.down);
+
+     The factor of `0.51` is to make the lines hover a slight bit out from the
+     actual edges of the cube (just like in Minecraft, as you may have noticed).
+
+     The four lines going up and down can be specified like this:
+
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.forward + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.forward + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.back + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.back + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.forward + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.forward + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.back + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.back + 0.51f*Vector3.down);
+
+     And the four lines along the front to back edges of the cube can be specified like this:
+
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.forward + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.back + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.forward + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.left + 0.51f*Vector3.back + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.forward + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.back + 0.51f*Vector3.up);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.forward + 0.51f*Vector3.down);
+           GL.Vertex( targetBlock.transform.position + 0.51f*Vector3.right + 0.51f*Vector3.back + 0.51f*Vector3.down);
+
+     Replacing each respective `TODO` in the `OnPostRender` function with the above lines of code results in this:
+
+     ![](./ScreenCaps/script_wireframe_lines.png)
+
+     The `if` statement checks to be sure `targetBlock` exists before
+     attempting to wire frame it. This prevents Unity from becoming confused by
+     `targetBlock.transform` after the player clicks and breaks the block that
+     they are looking at. It doesn't make sense to access the transform of a
+     game object that no longer exists.
+
+  9. Finally, let's tie up the loose end mentioned above. Currently, if the player moves the cursor off of
+     a block and into the sky or plane or something other than another block, that last block that the player
+     was looking at remains highlighted with a wire frame.
+
+     Add this line
+
+           public bool drawWireFrame;
+
+     to the top of the `MineBlock` class:
+
+     ![](./ScreenCaps/script_mineblock_drawwireframe_variable_declaration.png)
+
+  9. Add this line
+
+           drawWireFrame = false;
+
+     to the `Start` function:
+
+     ![](./ScreenCaps/script_mineblock_drawwireframe_init.png)
+
+  9. Set `drawWireFrame` to `true` in `OnMouseEnter` and set it to `false` in `OnMouseExit`.
+
+     ![](./ScreenCaps/script_mineblock_drawwireframe_toggle.png)
+
+  9. Now, in the `WireFrame` script, augment the condition in the `if` statement as follows:
+
+           if( targetBlock && targetBlock.GetComponent<MineBlock>().drawWireFrame)
+
+     ![](./ScreenCaps/script_wireframe_if_drawwireframe.png)
 
 <a name="texturemapping"></a>
 [Back to TOC](#toc)
