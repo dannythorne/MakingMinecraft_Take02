@@ -1512,7 +1512,7 @@ We will use the Unity GL graphics library.
      (See the [Unity GL documentation](http://docs.unity3d.com/ScriptReference/GL.html) for more information)
 
      ![Select FPSController](./ScreenCaps/fpscontroller_selected4.png "Select FPSController")
-     ![Attache WireFrame to FPSController](./ScreenCaps/script_wireframe_attached.png "Attache WireFrame to FPSController")
+     ![Attach WireFrame to FPSController](./ScreenCaps/script_wireframe_attached.png "Attach WireFrame to FPSController")
 
   4. Double-click the `WireFrame` script asset to open it in Mono and add the
      following lines
